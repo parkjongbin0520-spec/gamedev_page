@@ -709,13 +709,13 @@
           font-size: 47px;
         }
       }
-    </style>
-    <script
-      type="text/javascript"
-      nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs="
-      src="//lc.getunicorn.org?type=base-script&amp;request-id=18613"
-    ></script>
-  </head>
+    
+/* 레퍼런스 카드 확대 모달 */
+.reference-card{cursor:pointer;position:relative}.reference-card:focus-visible{outline:3px solid #538782;outline-offset:7px}.reference-card .media-image{height:230px;object-fit:contain;pointer-events:none}.reference-card .media-image~.media-image{display:none}.reference-open{display:block;font-size:13px;color:#538782;margin-top:13px}.reference-card:hover .reference-open{text-decoration:underline}
+#reference-modal{width:min(1120px,94vw);max-height:92dvh;padding:23px;border:0;border-radius:8px;background:#fff;color:var(--ink);overflow:auto}#reference-modal::backdrop{background:rgba(15,24,25,.76)}.modal-heading{display:flex;align-items:center;justify-content:space-between;gap:20px}.modal-heading h2{margin:0;font-size:24px}.modal-close{border:0;background:#eef3f1;padding:9px 13px;border-radius:4px}.modal-description{color:#626c70;margin:12px 0 20px}.modal-viewer{background:#101514;min-height:240px;display:flex;align-items:center;justify-content:center}.modal-viewer img,.modal-viewer video{display:block;width:100%;height:min(57dvh,620px);object-fit:contain}.modal-navigation{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:17px}.modal-navigation button{border:1px solid #d4dfda;background:white;padding:8px 16px}.modal-navigation button:disabled{opacity:.35;cursor:default}.modal-count{color:#63726c;font-size:14px}.modal-error{color:white;padding:40px;text-align:center}body.modal-open{overflow:hidden}@media(max-width:600px){#reference-modal{padding:16px}.modal-heading h2{font-size:19px}.modal-viewer img,.modal-viewer video{height:45dvh}.reference-card .media-image{height:210px}}@media print{#reference-modal,.reference-open{display:none}}
+</style>
+    
+  <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=10538"></script></head>
   <body>
     <header>
       <div class="brand">DEAD SIGNAL <span>게임개발실습 발표</span></div>
@@ -810,7 +810,7 @@
         <h1 id="title-reference">참고 게임</h1>
         <p class="lead">게임을 만들면서 이런 부분들을 참고했습니다.</p>
         <div class="cards three">
-          <article class="card">
+          <article class="card reference-card" role="button" tabindex="0" aria-haspopup="dialog" data-no-next>
             <img
               class="media-image"
               src="image/deadBydaylight_01.png"
@@ -825,25 +825,25 @@
 
             <h3>데드 바이 데이라이트</h3>
             <p>QTE와 숨는 행동 및 케비넷</p>
-          </article>
-          <article class="card">
+          <span class="reference-open">클릭해서 크게 보기 ↗</span></article>
+          <article class="card reference-card" role="button" tabindex="0" aria-haspopup="dialog" data-no-next>
             <video
               class="media-image"
-              controls
+              muted playsinline
               preload="metadata"
               src="./image/sinYowamari_01.mp4"
             ></video>
 
             <h3>신 요마와리</h3>
             <p>심박 소리와 UI</p>
-          </article>
-          <article class="card">
+          <span class="reference-open">클릭해서 크게 보기 ↗</span></article>
+          <article class="card reference-card" role="button" tabindex="0" aria-haspopup="dialog" data-no-next>
             <img class="media-image" src="image/isaac_01.png" alt="게임 화면 설명" />
             <img class="media-image" src="image/isaac_02.png" alt="게임 화면 설명" />
 
             <h3>아이작의 번제</h3>
             <p>맵이 뻗어나가는 구성</p>
-          </article>
+          <span class="reference-open">클릭해서 크게 보기 ↗</span></article>
         </div>
       </section>
       <!-- 화면 04: 역할 분배 / 제목, 설명, 자료를 여기서 수정하세요. -->
@@ -1142,6 +1142,14 @@
         <div class="end-mark">DEAD / SIGNAL</div>
       </section>
     </main>
+
+<!-- 카드 안에 img / video를 추가하면 모달 자료에도 자동으로 추가됩니다. 파일 경로는 기존 카드에서 수정하세요. -->
+<dialog id="reference-modal" aria-labelledby="reference-modal-title" aria-describedby="reference-modal-description">
+ <div class="modal-heading"><h2 id="reference-modal-title"></h2><button type="button" class="modal-close" id="reference-modal-close" aria-label="레퍼런스 닫기">닫기 ×</button></div>
+ <p class="modal-description" id="reference-modal-description"></p>
+ <div class="modal-viewer" id="reference-modal-viewer"></div>
+ <div class="modal-navigation"><button type="button" id="reference-media-prev">← 이전 자료</button><span class="modal-count" id="reference-media-count" aria-live="polite"></span><button type="button" id="reference-media-next">다음 자료 →</button></div>
+</dialog>
     <footer>
       <span class="hint">빈 공간 클릭 → 다음 화면 · ← → 방향키</span>
       <div class="controls">
@@ -1151,6 +1159,42 @@
       </div>
     </footer>
     <script>
+
+// 레퍼런스 모달: 기존 카드의 미디어를 복제해서 표시합니다.
+const referenceModal=document.getElementById('reference-modal');
+const referenceViewer=document.getElementById('reference-modal-viewer');
+let referenceMedia=[],referenceIndex=0,referenceTrigger=null;
+function renderReferenceMedia(index){
+ referenceViewer.querySelectorAll('video,audio').forEach(media=>media.pause());
+ referenceViewer.replaceChildren();referenceIndex=index;
+ const original=referenceMedia[index];const media=original.cloneNode(true);
+ media.removeAttribute('autoplay');media.removeAttribute('loop');media.removeAttribute('style');media.className='';
+ if(media.tagName==='VIDEO'){media.controls=true;media.muted=false;media.preload='metadata';media.setAttribute('playsinline','');}
+ else media.alt=document.getElementById('reference-modal-title').textContent+' 참고 사진 '+(index+1);
+ media.addEventListener('error',()=>{const notice=document.createElement('p');notice.className='modal-error';notice.textContent='자료를 불러올 수 없습니다. 원래 image 폴더와 파일 경로를 확인해 주세요.';referenceViewer.replaceChildren(notice);},{once:true});
+ referenceViewer.append(media);
+ document.getElementById('reference-media-count').textContent=(index+1)+' / '+referenceMedia.length+' · '+(media.tagName==='VIDEO'?'영상':'사진');
+ document.getElementById('reference-media-prev').disabled=index===0;
+ document.getElementById('reference-media-next').disabled=index===referenceMedia.length-1;
+}
+document.querySelectorAll('.reference-card').forEach(card=>{
+ function openReference(){
+ referenceTrigger=card;referenceMedia=[...card.querySelectorAll('img,video')];if(!referenceMedia.length)return;
+ document.getElementById('reference-modal-title').textContent=card.querySelector('h3').textContent;
+ document.getElementById('reference-modal-description').textContent=card.querySelector('p')?.textContent||'';
+ card.querySelectorAll('video').forEach(video=>video.pause());
+ renderReferenceMedia(0);referenceModal.showModal();document.body.classList.add('modal-open');
+ }
+ card.addEventListener('click',event=>{event.stopPropagation();openReference();});
+ card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openReference();}});
+});
+document.getElementById('reference-modal-close').addEventListener('click',()=>referenceModal.close());
+referenceModal.addEventListener('click',event=>{const r=referenceModal.getBoundingClientRect();if(event.target===referenceModal&&(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom))referenceModal.close();});
+referenceModal.addEventListener('close',()=>{referenceViewer.querySelectorAll('video').forEach(video=>video.pause());referenceViewer.replaceChildren();document.body.classList.remove('modal-open');referenceTrigger?.focus();});
+document.getElementById('reference-media-prev').addEventListener('click',()=>renderReferenceMedia(referenceIndex-1));
+document.getElementById('reference-media-next').addEventListener('click',()=>renderReferenceMedia(referenceIndex+1));
+referenceModal.addEventListener('keydown',event=>{if(event.target.closest('video'))return;if(event.key==='ArrowLeft'&&referenceIndex>0){event.preventDefault();renderReferenceMedia(referenceIndex-1);}if(event.key==='ArrowRight'&&referenceIndex<referenceMedia.length-1){event.preventDefault();renderReferenceMedia(referenceIndex+1);}});
+
       // 화면 전환. 이미지/영상/오디오/버튼/텍스트를 클릭하면 넘어가지 않습니다.
       const pages = [...document.querySelectorAll(".page")];
       const navButtons = [...document.querySelectorAll("nav [data-page]")];
@@ -1201,6 +1245,7 @@
         show(current + 1);
       });
       document.addEventListener("keydown", (event) => {
+        if (document.getElementById("reference-modal").open) return;
         if (
           event.target.closest(
             "input,textarea,select,video,audio,button,a,[contenteditable]",
