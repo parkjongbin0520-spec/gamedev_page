@@ -1026,30 +1026,63 @@
         <p class="lead">게임에서 사용할 효과음을 분류하고 라벨링했습니다.</p>
         <div class="cards three">
           <article class="card" data-no-next>
+            <h3>메인 타이틀 BGM</h3>
+            <p>게임 시작 후 메인 화면에서 나오는 음악</p>
+            <audio
+              src="./sound/BGM_Menu_Title_Loop_01.wav"
+              controls
+              preload="none"
+              aria-label="메인 타이틀 BGM"
+            ></audio>
+          </article>
+          <article class="card" data-no-next>
+            <h3>적 추격 시작 BGM</h3>
+            <p>적이 플레이어를 확신하고 추격을 시작했을 때 BGM</p>
+            <audio
+              src="./sound/BGM_Chase_Ative_OneShot_01.wav"
+              controls
+              preload="none"
+              aria-label="적 추격 시작 BGM"
+            ></audio>
+          </article>
+           <article class="card" data-no-next>
             <h3>환경음</h3>
-            <p>[소리의 용도와 적용 상황]</p>
-            <!-- TODO: src="assets/sound.wav" 추가 --><audio
+            <p>기본 엠비언트 음향효과</p>
+            <audio
+              src="./sound/AMB_Hospital_RoomTone_Loop_02.wav"
               controls
               preload="none"
               aria-label="환경음"
             ></audio>
           </article>
           <article class="card" data-no-next>
-            <h3>발소리 / 효과음</h3>
-            <p>[소리의 용도와 적용 상황]</p>
-            <!-- TODO: src="assets/sound.wav" 추가 --><audio
+            <h3>심장 박동 소리</h3>
+            <p>적이 근처에 있을 때 나는 소리</p>
+            <audio
+              src="./sound/SFX_Player_Heartbeat_Loop_02.wav"
               controls
               preload="none"
-              aria-label="발소리 / 효과음"
+              aria-label="심장 박동 소리"
             ></audio>
           </article>
           <article class="card" data-no-next>
-            <h3>UI / 심박 소리</h3>
-            <p>[소리의 용도와 적용 상황]</p>
-            <!-- TODO: src="assets/sound.wav" 추가 --><audio
+            <h3>거친 숨 소리</h3>
+            <p>적 추격에서 벗어나거나 달릴 때 효과음</p>
+            <audio
+              src="./sound/SFX_Player_Breath_Heavy_OneShot_01.wav"
               controls
               preload="none"
-              aria-label="UI / 심박 소리"
+              aria-label="거친 숨 소리"
+            ></audio>
+          </article>
+          <article class="card" data-no-next>
+            <h3>걸어다니는 소리</h3>
+            <p>기본 플레이어 걷기 소리</p>
+            <audio
+              src="./sound/SFX_Player_Walk_Idle_Loop_01.wav"
+              controls
+              preload="none"
+              aria-label="걸어다니는 소리"
             ></audio>
           </article>
         </div>
