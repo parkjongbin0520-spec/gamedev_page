@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <!-- 편집 안내: 색상·간격·박스는 style의 :root와 .card/.feature에서 수정합니다. 본문은 section별로, 자료는 기존 image / sound 폴더의 src에서 변경하세요. 외부 CDN 없이 실행되는 Tailwind 스타일의 단일 HTML입니다. --><meta charset="utf-8">
+
+<head>
+    <!-- 편집 안내: 색상·간격·박스는 style의 :root와 .card/.feature에서 수정합니다. 본문은 section별로, 자료는 기존 image / sound 폴더의 src에서 변경하세요. 외부 CDN 없이 실행되는 Tailwind 스타일의 단일 HTML입니다. -->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>DEAD SIGNAL · 발표 초안</title>
     <!-- 단일 HTML 파일. 외부 라이브러리 없이 브라우저에서 열 수 있습니다.
@@ -9,387 +11,1920 @@
  assets 폴더를 HTML 옆에 만들고 미디어를 넣은 뒤 상대 경로로 연결하세요.
  화면을 추가할 때 section.page와 상단 data-page 버튼의 id를 일치시키세요. -->
     <style>
-:root{--paper:#f6f5ee;--panel:#fffef9;--blue:#d4e8f7;--blue-soft:#e9f3fb;--lime:#e5f174;--ink:#081c2b;--muted:#486174;--line:#d6e2e9;--radius:20px;--shadow:0 6px 24px #0f385708}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Malgun Gothic",sans-serif;line-height:1.6;word-break:keep-all}button{font:inherit;cursor:pointer}button:focus-visible,[role=button]:focus-visible{outline:3px solid #268bd9;outline-offset:4px}button:disabled{opacity:.35;cursor:default}header{position:sticky;top:0;z-index:30;background:#f6f5eef5;border-bottom:1px solid var(--line);backdrop-filter:blur(12px);padding:18px 32px 0}.brand{display:flex;align-items:center;gap:13px;font-size:18px;font-weight:800;letter-spacing:-.04em}.brand::before{content:"DS";display:grid;place-items:center;width:36px;height:36px;background:var(--ink);color:var(--lime);border-radius:10px;font-size:13px;letter-spacing:0}.brand span{font-size:12px;color:var(--muted);font-weight:500;letter-spacing:0;margin-left:auto}nav{display:flex;gap:5px;overflow-x:auto;padding:16px 0 13px;scrollbar-width:thin}nav button{border:0;white-space:nowrap;padding:9px 14px;background:transparent;border-radius:10px;font-size:13px;color:var(--muted)}nav button:hover{background:var(--blue-soft)}nav button[aria-current=page]{background:var(--ink);color:var(--lime);font-weight:700}main{max-width:1500px;margin:auto;padding:36px 40px 110px;min-height:calc(100dvh - 120px)}.page{animation:enter .22s ease}.page[hidden]{display:none!important}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#175482;font-size:12px;font-weight:700;letter-spacing:.05em;margin-bottom:8px}.eyebrow::before{content:"";height:6px;width:6px;background:#a9ba12;border-radius:50%}h1{font-size:clamp(30px,3.4vw,48px);line-height:1.22;letter-spacing:-.055em;margin:4px 0 12px}h2,h3{line-height:1.4;letter-spacing:-.025em}h3{font-size:20px;margin:0 0 13px}.lead{font-size:18px;color:var(--muted);max-width:1000px;margin:0 0 28px}.content-grid{display:grid;gap:24px}.feature{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(260px,1fr);align-items:stretch;gap:24px;margin:0 0 24px}.feature>*,.split>*{min-width:0}.media-frame{background:var(--blue-soft);border:1px solid #c6ddea;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);position:relative;min-width:0;display:flex;flex-direction:column;justify-content:center}.media-frame .media-image{flex:1;min-height:280px;max-height:55dvh;width:100%;object-fit:contain;display:block;background:var(--blue-soft)}.media-caption{padding:12px 18px;background:#d4e8f7;border-top:1px solid #c6ddea;font-size:12px;color:#175482;display:flex;justify-content:space-between}.card,.info-panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:25px;box-shadow:var(--shadow);min-width:0}.card p,.info-panel p{margin:10px 0;color:var(--muted);font-size:16px}.feature aside{border-top:5px solid var(--blue)}.feature aside h3{font-size:17px}.feature aside p+p{padding-top:14px;border-top:1px solid var(--line)}.cards{display:grid;gap:22px;margin-bottom:24px}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.tag{display:inline-block;padding:3px 10px;background:var(--blue-soft);border:1px solid var(--line);border-radius:7px;color:#175482;font-size:12px;margin-bottom:14px;font-weight:700}.cards .media-image{width:100%;height:235px;object-fit:contain;background:var(--blue-soft);border:1px solid #d4e8f7;border-radius:12px;display:block;margin-bottom:20px}.reference-card{cursor:pointer;transition:transform .15s,border-color .15s}.reference-card:hover{transform:translateY(-3px);border-color:#7dbae8}.reference-card .media-image{pointer-events:none}.reference-card .media-image~.media-image{display:none}.reference-open{display:block;margin-top:20px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;font-weight:700;color:#175482}.table-wrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);margin:0 0 24px;min-width:0}table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.6}th{text-align:left;background:var(--blue);padding:14px 20px;font-size:13px;color:#0f3857}td{padding:14px 20px;border-top:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even){background:#e9f3fb55}td:first-child{font-weight:600;color:#0f3857;white-space:nowrap}.control-layout{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}.control-layout .table-wrap{margin:0}.control-layout .media-frame .media-image{height:100%;max-height:570px}.note{border:1px solid #c6ddea;border-left:5px solid #7dbae8;border-radius:12px;background:var(--blue-soft);padding:18px 22px;margin:20px 0 24px;font-size:15px;color:#0f3857;line-height:1.9}.note small{display:inline-block;font-size:13px;margin-top:8px}.split{display:grid;grid-template-columns:1.35fr 1fr;gap:24px;margin-bottom:24px}.pending,.placeholder{min-height:260px;border:2px dashed #a8d1f0;border-radius:var(--radius);background:var(--blue-soft);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;color:#175482;gap:8px}.pending::before{content:"자료 준비";font-size:11px;font-weight:700;background:#d4e8f7;border-radius:6px;padding:4px 9px;margin-bottom:9px}.pending p{font-size:13px;margin:0}.placeholder span{font-size:13px}.placeholder-icon{font-size:32px!important}.palette{display:flex;min-height:80px;border:1px solid #dbd7bd;border-radius:14px;overflow:hidden;margin:25px 0}.palette>div{padding:22px 16px;font-size:14px;font-weight:700}.porcelain{flex:6;background:#f6f5ee}.icy{flex:3;background:#d4e8f7}.lime{flex:1;background:#e5f174;min-width:120px}audio{display:block;width:100%;margin-top:22px}#sound .card{border-top:4px solid #a8d1f0}#sound .card h3{font-size:18px}#sound .cards{margin-top:24px}#next .card{border-top:5px solid var(--lime)}#mvp .card{padding:22px}.end-mark{font-size:clamp(35px,7vw,100px);letter-spacing:-.05em;font-weight:800;color:#a8d1f0;margin-top:50px;border-top:1px solid var(--line);padding-top:30px}#intro .feature,#experience .feature,#build .feature{grid-template-columns:1fr}#intro h1{font-size:clamp(50px,6vw,84px)}#intro .media-frame .media-image,#build .media-frame .media-image{max-height:55dvh}#end{padding-top:8vh}footer{position:fixed;bottom:0;left:0;right:0;z-index:25;border-top:1px solid var(--line);background:#f6f5eef5;backdrop-filter:blur(12px);padding:13px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px}.hint{font-size:11px;color:var(--muted)}.controls{display:flex;align-items:center;gap:14px}.controls button{border:1px solid var(--line);border-radius:9px;background:var(--panel);padding:9px 17px;font-size:13px;font-weight:700;color:#0f3857}.controls button:last-child{background:var(--lime);border-color:#d3e817}#progress{font-size:12px;font-weight:700;color:#175482;font-variant-numeric:tabular-nums;min-width:55px;text-align:center}#presentation-progress{position:fixed;top:0;left:0;height:3px;background:#a9ba12;z-index:60;transition:width .2s ease}#reference-modal{width:min(1150px,94vw);max-height:92dvh;border:1px solid var(--line);padding:24px;border-radius:22px;background:var(--paper);color:var(--ink);overflow:auto;box-shadow:0 30px 90px #081c2b44}#reference-modal::backdrop{background:#081c2bbd;backdrop-filter:blur(5px)}.modal-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}.modal-heading h2{font-size:23px;margin:0}.modal-close{border:0;background:var(--lime);border-radius:9px;padding:9px 15px}.modal-description{color:var(--muted);margin:12px 0 20px}.modal-viewer{background:#081c2b;border-radius:14px;overflow:hidden;min-height:240px;display:flex;align-items:center;justify-content:center}.modal-viewer img,.modal-viewer video{display:block;width:100%;height:58dvh;object-fit:contain}.modal-navigation{display:flex;align-items:center;justify-content:center;gap:17px;margin-top:18px}.modal-navigation button{padding:9px 14px;border:1px solid var(--line);border-radius:9px;background:var(--blue-soft)}.modal-count{font-size:13px;color:#175482}.modal-error{padding:40px;color:#fff;text-align:center}body.modal-open{overflow:hidden}.asset-missing{object-fit:contain}.missing-label{padding:14px;background:#e9f3fb;color:#175482;font-size:13px;border-top:1px solid #c6ddea}.cards .missing-label{border-radius:8px;margin:-10px 0 15px}.section-status{font-size:12px;padding:5px 10px;background:#e5f174;border:1px solid #d3e817;border-radius:7px;display:inline-block;margin-bottom:15px}@keyframes enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@media(max-width:1050px){.feature,.control-layout{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}main{padding:30px 25px 110px}.three{gap:16px}.card{padding:20px}td,th{padding:12px 14px}}@media(max-width:760px){header{padding:13px 17px 0}.brand{font-size:16px}.brand span{font-size:10px}nav{padding-top:12px}nav button{padding:8px 11px;font-size:12px}main{padding:25px 17px 105px}.feature,.control-layout,.three,.split{grid-template-columns:1fr;gap:18px}.lead{font-size:16px}h1{font-size:32px}.media-frame .media-image{min-height:220px;max-height:45dvh}.cards .media-image{height:230px}.card,.info-panel{padding:20px}footer{padding:11px 16px}.hint{display:none}.controls{justify-content:space-between;width:100%}.palette{flex-wrap:wrap}.palette>div{padding:15px 10px;font-size:12px}.modal-viewer img,.modal-viewer video{height:45dvh}#reference-modal{padding:17px}.modal-heading h2{font-size:18px}.modal-navigation{gap:10px}.modal-navigation button{padding:9px;font-size:12px}.table-wrap{margin-bottom:18px}td,th{font-size:13px;padding:11px}td:first-child{white-space:normal}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}@media print{header,footer,#presentation-progress,dialog{display:none!important}main{padding:0}.page,.page[hidden]{display:block!important;break-after:page;padding:25px}.card,.table-wrap,.media-frame{box-shadow:none}.reference-open{display:none}}
+        :root {
+            --paper: #f6f5ee;
+            --panel: #fffef9;
+            --blue: #d4e8f7;
+            --blue-soft: #e9f3fb;
+            --lime: #e5f174;
+            --ink: #081c2b;
+            --muted: #486174;
+            --line: #d6e2e9;
+            --radius: 20px;
+            --shadow: 0 6px 24px #0f385708
+        }
 
-/* 확정된 페이지 구성 + 그라데이션 / 정보 박스 전용 호버 */
-body{background:radial-gradient(ellipse at 95% 10%,#d4e8f7aa,transparent 48%),radial-gradient(ellipse at 0% 90%,#edf6a233,transparent 38%),linear-gradient(135deg,#f6f5ee 25%,#f6f5ee 60%,#e9f3fb 100%);background-attachment:fixed}header,footer{background:linear-gradient(110deg,#f6f5eef5,#e9f3fbf2)}.card,.info-panel{background:linear-gradient(140deg,#fffef9 20%,#f6f5ee 100%)}.hover-info{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}.hover-info:hover{transform:translateY(-3px);border-color:#7dbae8;box-shadow:0 10px 26px #0f385712,0 0 0 1px #a8d1f08c,0 0 16px #a8d1f04d}.reference-card:hover,.evidence-card:hover,.audio-card:hover,.media-frame:hover,.table-wrap:hover,.track-panel:hover{transform:none;box-shadow:var(--shadow)}.reference-card{transition:none}.reference-card:hover{border-color:var(--line)}.subtle{font-size:13px!important;color:#486174!important;line-height:1.7}.steps{padding-left:23px;margin:0}.steps li{padding:9px 0;color:#0f3857}.steps li+li{border-top:1px solid var(--line)}.ui-item+.ui-item{border-top:1px solid var(--line);margin-top:18px;padding-top:18px}.ui-item b{color:#175482}.art-layout{display:grid;grid-template-columns:1.3fr 1fr;gap:24px}.artboard,.stack{display:grid;gap:20px}.asset-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}.asset-row .pending{min-height:155px;padding:20px}.swatches{display:grid;grid-template-columns:1fr;gap:8px}.swatches>div{border:1px solid #dbd7bd;border-radius:9px;padding:11px 14px;display:flex;justify-content:space-between;font-size:14px}.reference-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.reference-grid .pending{min-height:240px;margin-bottom:21px;padding:22px}.evidence-card h3{margin-top:15px}.audio-card{background:linear-gradient(145deg,#fffef9,#e9f3fb)}.track-panel{background:linear-gradient(145deg,#fffef9,#e9f3fb);border:1px solid var(--line);border-radius:20px;padding:25px;box-shadow:var(--shadow)}.track-ruler{display:flex;justify-content:space-between;padding-left:110px;margin:18px 0 12px;font-size:12px;color:#486174}.track-row{display:flex;align-items:center;gap:15px;margin:14px 0}.track-row>span{width:95px;flex-shrink:0;font-size:13px;color:#175482}.track-lane{height:44px;background:#d4e8f755;border:1px solid #a8d1f077;position:relative;flex:1;border-radius:7px;overflow:hidden}.track-clip{position:absolute;top:5px;bottom:5px;border-radius:4px;background:linear-gradient(90deg,#7dbae8,#a8d1f0);border:1px solid #52a3e0}.track-clip i{display:block;height:100%;background:repeating-linear-gradient(90deg,transparent 0 5px,#17548244 5px 7px);clip-path:polygon(0 40%,8% 10%,16% 55%,24% 20%,32% 35%,40% 0,48% 40%,56% 15%,64% 60%,72% 25%,80% 5%,88% 40%,100% 20%,100% 80%,88% 60%,80% 95%,72% 75%,64% 40%,56% 85%,48% 60%,40% 100%,32% 65%,24% 80%,16% 45%,8% 90%,0 60%)}.clip-2{background:linear-gradient(90deg,#e5f174,#dced45);border-color:#a9ba12}.filename{display:block;overflow-wrap:anywhere;padding:14px 18px;background:#d4e8f7;border-radius:9px;font-size:14px;color:#0f3857}.control-layout{align-items:stretch}.control-layout .media-frame{min-height:350px}@media(max-width:900px){.art-layout,.reference-grid{grid-template-columns:1fr}.reference-grid .pending{min-height:250px}.asset-row{gap:12px}.track-row{gap:9px}.track-row>span{width:80px}.track-ruler{padding-left:90px}}@media(prefers-reduced-motion:reduce){.hover-info:hover{transform:none}}
-</style><script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=18812"></script></head>
-  <body>
-    <div id="presentation-progress" aria-hidden="true"></div><header>
-      <div class="brand">DEAD SIGNAL <span>게임개발실습 발표</span></div>
-      <nav aria-label="발표 화면 선택"><button type="button" data-page="intro" aria-controls="intro">소개</button><button type="button" data-page="experience" aria-controls="experience">게임 경험</button><button type="button" data-page="reference" aria-controls="reference">레퍼런스</button><button type="button" data-page="mvp" aria-controls="mvp">역할</button><button type="button" data-page="goal" aria-controls="goal">승리 조건</button><button type="button" data-page="player" aria-controls="player">조작</button><button type="button" data-page="enemy" aria-controls="enemy">적 1</button><button type="button" data-page="enemy-special" aria-controls="enemy-special">적 2</button><button type="button" data-page="ui" aria-controls="ui">UI</button><button type="button" data-page="graphic-direction" aria-controls="graphic-direction">그래픽 1</button><button type="button" data-page="graphic-reference" aria-controls="graphic-reference">그래픽 2</button><button type="button" data-page="graphic" aria-controls="graphic">그래픽 3</button><button type="button" data-page="sound" aria-controls="sound">사운드 1</button><button type="button" data-page="sound-process" aria-controls="sound-process">사운드 2</button><button type="button" data-page="build" aria-controls="build">통합</button><button type="button" data-page="next" aria-controls="next">다음 목표</button><button type="button" data-page="end" aria-controls="end">마무리</button></nav></header>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: Arial, "Malgun Gothic", sans-serif;
+            line-height: 1.6;
+            word-break: keep-all
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer
+        }
+
+        button:focus-visible,
+        [role=button]:focus-visible {
+            outline: 3px solid #268bd9;
+            outline-offset: 4px
+        }
+
+        button:disabled {
+            opacity: .35;
+            cursor: default
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            background: #f6f5eef5;
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(12px);
+            padding: 18px 32px 0
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -.04em
+        }
+
+        .brand::before {
+            content: "DS";
+            display: grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            background: var(--ink);
+            color: var(--lime);
+            border-radius: 10px;
+            font-size: 13px;
+            letter-spacing: 0
+        }
+
+        .brand span {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 500;
+            letter-spacing: 0;
+            margin-left: auto
+        }
+
+        nav {
+            display: flex;
+            gap: 5px;
+            overflow-x: auto;
+            padding: 16px 0 13px;
+            scrollbar-width: thin
+        }
+
+        nav button {
+            border: 0;
+            white-space: nowrap;
+            padding: 9px 14px;
+            background: transparent;
+            border-radius: 10px;
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        nav button:hover {
+            background: var(--blue-soft)
+        }
+
+        nav button[aria-current=page] {
+            background: var(--ink);
+            color: var(--lime);
+            font-weight: 700
+        }
+
+        main {
+            max-width: 1500px;
+            margin: auto;
+            padding: 36px 40px 110px;
+            min-height: calc(100dvh - 120px)
+        }
+
+        .page {
+            animation: enter .22s ease
+        }
+
+        .page[hidden] {
+            display: none !important
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #175482;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .05em;
+            margin-bottom: 8px
+        }
+
+        .eyebrow::before {
+            content: "";
+            height: 6px;
+            width: 6px;
+            background: #a9ba12;
+            border-radius: 50%
+        }
+
+        h1 {
+            font-size: clamp(30px, 3.4vw, 48px);
+            line-height: 1.22;
+            letter-spacing: -.055em;
+            margin: 4px 0 12px
+        }
+
+        h2,
+        h3 {
+            line-height: 1.4;
+            letter-spacing: -.025em
+        }
+
+        h3 {
+            font-size: 20px;
+            margin: 0 0 13px
+        }
+
+        .lead {
+            font-size: 18px;
+            color: var(--muted);
+            max-width: 1000px;
+            margin: 0 0 28px
+        }
+
+        .content-grid {
+            display: grid;
+            gap: 24px
+        }
+
+        .feature {
+            display: grid;
+            grid-template-columns: minmax(0, 1.8fr) minmax(260px, 1fr);
+            align-items: stretch;
+            gap: 24px;
+            margin: 0 0 24px
+        }
+
+        .feature>*,
+        .split>* {
+            min-width: 0
+        }
+
+        .media-frame {
+            background: var(--blue-soft);
+            border: 1px solid #c6ddea;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .media-frame .media-image {
+            flex: 1;
+            min-height: 280px;
+            max-height: 55dvh;
+            width: 100%;
+            object-fit: contain;
+            display: block;
+            background: var(--blue-soft)
+        }
+
+        .media-caption {
+            padding: 12px 18px;
+            background: #d4e8f7;
+            border-top: 1px solid #c6ddea;
+            font-size: 12px;
+            color: #175482;
+            display: flex;
+            justify-content: space-between
+        }
+
+        .card,
+        .info-panel {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            min-width: 0
+        }
+
+        .card p,
+        .info-panel p {
+            margin: 10px 0;
+            color: var(--muted);
+            font-size: 16px
+        }
+
+        .feature aside {
+            border-top: 5px solid var(--blue)
+        }
+
+        .feature aside h3 {
+            font-size: 17px
+        }
+
+        .feature aside p+p {
+            padding-top: 14px;
+            border-top: 1px solid var(--line)
+        }
+
+        .cards {
+            display: grid;
+            gap: 22px;
+            margin-bottom: 24px
+        }
+
+        .three {
+            grid-template-columns: repeat(3, minmax(0, 1fr))
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            background: var(--blue-soft);
+            border: 1px solid var(--line);
+            border-radius: 7px;
+            color: #175482;
+            font-size: 12px;
+            margin-bottom: 14px;
+            font-weight: 700
+        }
+
+        .cards .media-image {
+            width: 100%;
+            height: 235px;
+            object-fit: contain;
+            background: var(--blue-soft);
+            border: 1px solid #d4e8f7;
+            border-radius: 12px;
+            display: block;
+            margin-bottom: 20px
+        }
+
+        .reference-card {
+            cursor: pointer;
+            transition: transform .15s, border-color .15s
+        }
+
+        .reference-card:hover {
+            transform: translateY(-3px);
+            border-color: #7dbae8
+        }
+
+        .reference-card .media-image {
+            pointer-events: none
+        }
+
+        .reference-card .media-image~.media-image {
+            display: none
+        }
+
+        .reference-open {
+            display: block;
+            margin-top: 20px;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+            font-size: 13px;
+            font-weight: 700;
+            color: #175482
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin: 0 0 24px;
+            min-width: 0
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+            line-height: 1.6
+        }
+
+        th {
+            text-align: left;
+            background: var(--blue);
+            padding: 14px 20px;
+            font-size: 13px;
+            color: #0f3857
+        }
+
+        td {
+            padding: 14px 20px;
+            border-top: 1px solid var(--line);
+            vertical-align: top
+        }
+
+        tbody tr:nth-child(even) {
+            background: #e9f3fb55
+        }
+
+        td:first-child {
+            font-weight: 600;
+            color: #0f3857;
+            white-space: nowrap
+        }
+
+        .control-layout {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr)
+        }
+
+        .control-layout .table-wrap {
+            margin: 0
+        }
+
+        .control-layout .media-frame .media-image {
+            height: 100%;
+            max-height: 570px
+        }
+
+        .note {
+            border: 1px solid #c6ddea;
+            border-left: 5px solid #7dbae8;
+            border-radius: 12px;
+            background: var(--blue-soft);
+            padding: 18px 22px;
+            margin: 20px 0 24px;
+            font-size: 15px;
+            color: #0f3857;
+            line-height: 1.9
+        }
+
+        .note small {
+            display: inline-block;
+            font-size: 13px;
+            margin-top: 8px
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px
+        }
+
+        .pending,
+        .placeholder {
+            min-height: 260px;
+            border: 2px dashed #a8d1f0;
+            border-radius: var(--radius);
+            background: var(--blue-soft);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            color: #175482;
+            gap: 8px
+        }
+
+        .pending::before {
+            content: "자료 준비";
+            font-size: 11px;
+            font-weight: 700;
+            background: #d4e8f7;
+            border-radius: 6px;
+            padding: 4px 9px;
+            margin-bottom: 9px
+        }
+
+        .pending p {
+            font-size: 13px;
+            margin: 0
+        }
+
+        .placeholder span {
+            font-size: 13px
+        }
+
+        .placeholder-icon {
+            font-size: 32px !important
+        }
+
+        .palette {
+            display: flex;
+            min-height: 80px;
+            border: 1px solid #dbd7bd;
+            border-radius: 14px;
+            overflow: hidden;
+            margin: 25px 0
+        }
+
+        .palette>div {
+            padding: 22px 16px;
+            font-size: 14px;
+            font-weight: 700
+        }
+
+        .porcelain {
+            flex: 6;
+            background: #f6f5ee
+        }
+
+        .icy {
+            flex: 3;
+            background: #d4e8f7
+        }
+
+        .lime {
+            flex: 1;
+            background: #e5f174;
+            min-width: 120px
+        }
+
+        audio {
+            display: block;
+            width: 100%;
+            margin-top: 22px
+        }
+
+        #sound .card {
+            border-top: 4px solid #a8d1f0
+        }
+
+        #sound .card h3 {
+            font-size: 18px
+        }
+
+        #sound .cards {
+            margin-top: 24px
+        }
+
+        #next .card {
+            border-top: 5px solid var(--lime)
+        }
+
+        #mvp .card {
+            padding: 22px
+        }
+
+        .end-mark {
+            font-size: clamp(35px, 7vw, 100px);
+            letter-spacing: -.05em;
+            font-weight: 800;
+            color: #a8d1f0;
+            margin-top: 50px;
+            border-top: 1px solid var(--line);
+            padding-top: 30px
+        }
+
+        #intro .feature,
+        #experience .feature,
+        #build .feature {
+            grid-template-columns: 1fr
+        }
+
+        #intro h1 {
+            font-size: clamp(50px, 6vw, 84px)
+        }
+
+        #intro .media-frame .media-image,
+        #build .media-frame .media-image {
+            max-height: 55dvh
+        }
+
+        #end {
+            padding-top: 8vh
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 25;
+            border-top: 1px solid var(--line);
+            background: #f6f5eef5;
+            backdrop-filter: blur(12px);
+            padding: 13px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px
+        }
+
+        .hint {
+            font-size: 11px;
+            color: var(--muted)
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .controls button {
+            border: 1px solid var(--line);
+            border-radius: 9px;
+            background: var(--panel);
+            padding: 9px 17px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #0f3857
+        }
+
+        .controls button:last-child {
+            background: var(--lime);
+            border-color: #d3e817
+        }
+
+        #progress {
+            font-size: 12px;
+            font-weight: 700;
+            color: #175482;
+            font-variant-numeric: tabular-nums;
+            min-width: 55px;
+            text-align: center
+        }
+
+        #presentation-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: #a9ba12;
+            z-index: 60;
+            transition: width .2s ease
+        }
+
+        #reference-modal {
+            width: min(1150px, 94vw);
+            max-height: 92dvh;
+            border: 1px solid var(--line);
+            padding: 24px;
+            border-radius: 22px;
+            background: var(--paper);
+            color: var(--ink);
+            overflow: auto;
+            box-shadow: 0 30px 90px #081c2b44
+        }
+
+        #reference-modal::backdrop {
+            background: #081c2bbd;
+            backdrop-filter: blur(5px)
+        }
+
+        .modal-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px
+        }
+
+        .modal-heading h2 {
+            font-size: 23px;
+            margin: 0
+        }
+
+        .modal-close {
+            border: 0;
+            background: var(--lime);
+            border-radius: 9px;
+            padding: 9px 15px
+        }
+
+        .modal-description {
+            color: var(--muted);
+            margin: 12px 0 20px
+        }
+
+        .modal-viewer {
+            background: #081c2b;
+            border-radius: 14px;
+            overflow: hidden;
+            min-height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .modal-viewer img,
+        .modal-viewer video {
+            display: block;
+            width: 100%;
+            height: 58dvh;
+            object-fit: contain
+        }
+
+        .modal-navigation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 17px;
+            margin-top: 18px
+        }
+
+        .modal-navigation button {
+            padding: 9px 14px;
+            border: 1px solid var(--line);
+            border-radius: 9px;
+            background: var(--blue-soft)
+        }
+
+        .modal-count {
+            font-size: 13px;
+            color: #175482
+        }
+
+        .modal-error {
+            padding: 40px;
+            color: #fff;
+            text-align: center
+        }
+
+        body.modal-open {
+            overflow: hidden
+        }
+
+        .asset-missing {
+            object-fit: contain
+        }
+
+        .missing-label {
+            padding: 14px;
+            background: #e9f3fb;
+            color: #175482;
+            font-size: 13px;
+            border-top: 1px solid #c6ddea
+        }
+
+        .cards .missing-label {
+            border-radius: 8px;
+            margin: -10px 0 15px
+        }
+
+        .section-status {
+            font-size: 12px;
+            padding: 5px 10px;
+            background: #e5f174;
+            border: 1px solid #d3e817;
+            border-radius: 7px;
+            display: inline-block;
+            margin-bottom: 15px
+        }
+
+        @keyframes enter {
+            from {
+                opacity: 0;
+                transform: translateY(8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        @media(max-width:1050px) {
+
+            .feature,
+            .control-layout {
+                grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr)
+            }
+
+            main {
+                padding: 30px 25px 110px
+            }
+
+            .three {
+                gap: 16px
+            }
+
+            .card {
+                padding: 20px
+            }
+
+            td,
+            th {
+                padding: 12px 14px
+            }
+        }
+
+        @media(max-width:760px) {
+            header {
+                padding: 13px 17px 0
+            }
+
+            .brand {
+                font-size: 16px
+            }
+
+            .brand span {
+                font-size: 10px
+            }
+
+            nav {
+                padding-top: 12px
+            }
+
+            nav button {
+                padding: 8px 11px;
+                font-size: 12px
+            }
+
+            main {
+                padding: 25px 17px 105px
+            }
+
+            .feature,
+            .control-layout,
+            .three,
+            .split {
+                grid-template-columns: 1fr;
+                gap: 18px
+            }
+
+            .lead {
+                font-size: 16px
+            }
+
+            h1 {
+                font-size: 32px
+            }
+
+            .media-frame .media-image {
+                min-height: 220px;
+                max-height: 45dvh
+            }
+
+            .cards .media-image {
+                height: 230px
+            }
+
+            .card,
+            .info-panel {
+                padding: 20px
+            }
+
+            footer {
+                padding: 11px 16px
+            }
+
+            .hint {
+                display: none
+            }
+
+            .controls {
+                justify-content: space-between;
+                width: 100%
+            }
+
+            .palette {
+                flex-wrap: wrap
+            }
+
+            .palette>div {
+                padding: 15px 10px;
+                font-size: 12px
+            }
+
+            .modal-viewer img,
+            .modal-viewer video {
+                height: 45dvh
+            }
+
+            #reference-modal {
+                padding: 17px
+            }
+
+            .modal-heading h2 {
+                font-size: 18px
+            }
+
+            .modal-navigation {
+                gap: 10px
+            }
+
+            .modal-navigation button {
+                padding: 9px;
+                font-size: 12px
+            }
+
+            .table-wrap {
+                margin-bottom: 18px
+            }
+
+            td,
+            th {
+                font-size: 13px;
+                padding: 11px
+            }
+
+            td:first-child {
+                white-space: normal
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            * {
+                animation: none !important;
+                transition: none !important
+            }
+        }
+
+        @media print {
+
+            header,
+            footer,
+            #presentation-progress,
+            dialog {
+                display: none !important
+            }
+
+            main {
+                padding: 0
+            }
+
+            .page,
+            .page[hidden] {
+                display: block !important;
+                break-after: page;
+                padding: 25px
+            }
+
+            .card,
+            .table-wrap,
+            .media-frame {
+                box-shadow: none
+            }
+
+            .reference-open {
+                display: none
+            }
+        }
+
+        /* 확정된 페이지 구성 + 그라데이션 / 정보 박스 전용 호버 */
+        body {
+            background: radial-gradient(ellipse at 95% 10%, #d4e8f7aa, transparent 48%), radial-gradient(ellipse at 0% 90%, #edf6a233, transparent 38%), linear-gradient(135deg, #f6f5ee 25%, #f6f5ee 60%, #e9f3fb 100%);
+            background-attachment: fixed
+        }
+
+        header,
+        footer {
+            background: linear-gradient(110deg, #f6f5eef5, #e9f3fbf2)
+        }
+
+        .card,
+        .info-panel {
+            background: linear-gradient(140deg, #fffef9 20%, #f6f5ee 100%)
+        }
+
+        .hover-info {
+            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease
+        }
+
+        .hover-info:hover {
+            transform: translateY(-3px);
+            border-color: #7dbae8;
+            box-shadow: 0 10px 26px #0f385712, 0 0 0 1px #a8d1f08c, 0 0 16px #a8d1f04d
+        }
+
+        .reference-card:hover,
+        .evidence-card:hover,
+        .audio-card:hover,
+        .media-frame:hover,
+        .table-wrap:hover,
+        .track-panel:hover {
+            transform: none;
+            box-shadow: var(--shadow)
+        }
+
+        .reference-card {
+            transition: none
+        }
+
+        .reference-card:hover {
+            border-color: var(--line)
+        }
+
+        .subtle {
+            font-size: 13px !important;
+            color: #486174 !important;
+            line-height: 1.7
+        }
+
+        .steps {
+            padding-left: 23px;
+            margin: 0
+        }
+
+        .steps li {
+            padding: 9px 0;
+            color: #0f3857
+        }
+
+        .steps li+li {
+            border-top: 1px solid var(--line)
+        }
+
+        .ui-item+.ui-item {
+            border-top: 1px solid var(--line);
+            margin-top: 18px;
+            padding-top: 18px
+        }
+
+        .ui-item b {
+            color: #175482
+        }
+
+        .art-layout {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 24px
+        }
+
+        .artboard,
+        .stack {
+            display: grid;
+            gap: 20px
+        }
+
+        .asset-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px
+        }
+
+        .asset-row .pending {
+            min-height: 155px;
+            padding: 20px
+        }
+
+        .swatches {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px
+        }
+
+        .swatches>div {
+            border: 1px solid #dbd7bd;
+            border-radius: 9px;
+            padding: 11px 14px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px
+        }
+
+        .reference-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px
+        }
+
+        .reference-grid .pending {
+            min-height: 240px;
+            margin-bottom: 21px;
+            padding: 22px
+        }
+
+        .evidence-card h3 {
+            margin-top: 15px
+        }
+
+        .audio-card {
+            background: linear-gradient(145deg, #fffef9, #e9f3fb)
+        }
+
+        .track-panel {
+            background: linear-gradient(145deg, #fffef9, #e9f3fb);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: var(--shadow)
+        }
+
+        .track-ruler {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 110px;
+            margin: 18px 0 12px;
+            font-size: 12px;
+            color: #486174
+        }
+
+        .track-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 14px 0
+        }
+
+        .track-row>span {
+            width: 95px;
+            flex-shrink: 0;
+            font-size: 13px;
+            color: #175482
+        }
+
+        .track-lane {
+            height: 44px;
+            background: #d4e8f755;
+            border: 1px solid #a8d1f077;
+            position: relative;
+            flex: 1;
+            border-radius: 7px;
+            overflow: hidden
+        }
+
+        .track-clip {
+            position: absolute;
+            top: 5px;
+            bottom: 5px;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #7dbae8, #a8d1f0);
+            border: 1px solid #52a3e0
+        }
+
+        .track-clip i {
+            display: block;
+            height: 100%;
+            background: repeating-linear-gradient(90deg, transparent 0 5px, #17548244 5px 7px);
+            clip-path: polygon(0 40%, 8% 10%, 16% 55%, 24% 20%, 32% 35%, 40% 0, 48% 40%, 56% 15%, 64% 60%, 72% 25%, 80% 5%, 88% 40%, 100% 20%, 100% 80%, 88% 60%, 80% 95%, 72% 75%, 64% 40%, 56% 85%, 48% 60%, 40% 100%, 32% 65%, 24% 80%, 16% 45%, 8% 90%, 0 60%)
+        }
+
+        .clip-2 {
+            background: linear-gradient(90deg, #e5f174, #dced45);
+            border-color: #a9ba12
+        }
+
+        .filename {
+            display: block;
+            overflow-wrap: anywhere;
+            padding: 14px 18px;
+            background: #d4e8f7;
+            border-radius: 9px;
+            font-size: 14px;
+            color: #0f3857
+        }
+
+        .control-layout {
+            align-items: stretch
+        }
+
+        .control-layout .media-frame {
+            min-height: 350px
+        }
+
+        @media(max-width:900px) {
+
+            .art-layout,
+            .reference-grid {
+                grid-template-columns: 1fr
+            }
+
+            .reference-grid .pending {
+                min-height: 250px
+            }
+
+            .asset-row {
+                gap: 12px
+            }
+
+            .track-row {
+                gap: 9px
+            }
+
+            .track-row>span {
+                width: 80px
+            }
+
+            .track-ruler {
+                padding-left: 90px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .hover-info:hover {
+                transform: none
+            }
+        }
+
+        /* 사운드 트랙 이미지는 원본 비율로 박스 안에 맞춥니다. */
+        #sound-process .feature {
+            grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+            align-items: start
+        }
+
+        #sound-process .track-panel {
+            min-width: 0;
+            padding: 18px;
+            overflow: hidden
+        }
+
+        #sound-process .track-panel .media-image {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px
+        }
+
+        #sound-process .info-panel {
+            min-width: 0
+        }
+
+        @media(max-width:760px) {
+            #sound-process .feature {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+    <script type="text/javascript" nonce="XOJ0BVE+zr3qdJZKBBAaLFbFzesxhK/xP1QmLnOdycs=" src="//lc.getunicorn.org?type=base-script&amp;request-id=6013"></script>
+</head>
+
+<body>
+    <div id="presentation-progress" aria-hidden="true"></div>
+    <header>
+        <div class="brand">DEAD SIGNAL <span>게임개발실습 발표</span></div>
+        <nav aria-label="발표 화면 선택"><button type="button" data-page="intro" aria-controls="intro">소개</button><button type="button" data-page="experience" aria-controls="experience">게임 경험</button><button type="button" data-page="reference" aria-controls="reference">레퍼런스</button><button type="button" data-page="mvp" aria-controls="mvp">역할</button><button type="button" data-page="goal" aria-controls="goal">승리 조건</button><button type="button" data-page="player" aria-controls="player">조작</button><button type="button" data-page="enemy" aria-controls="enemy">적 1</button><button type="button" data-page="enemy-special" aria-controls="enemy-special">적 2</button><button type="button" data-page="ui" aria-controls="ui">UI</button><button type="button" data-page="graphic-direction" aria-controls="graphic-direction">그래픽 1</button><button type="button" data-page="graphic-reference" aria-controls="graphic-reference">그래픽 2</button><button type="button" data-page="graphic" aria-controls="graphic">그래픽 3</button><button type="button" data-page="sound" aria-controls="sound">사운드 1</button><button type="button" data-page="sound-process" aria-controls="sound-process">사운드 2</button><button type="button" data-page="build" aria-controls="build">통합</button><button type="button" data-page="next" aria-controls="next">다음 목표</button><button type="button" data-page="end" aria-controls="end">마무리</button></nav>
+    </header>
     <main id="stage" aria-label="발표 내용">
-      <!-- 화면 01: 소개 / 제목, 설명, 자료를 여기서 수정하세요. -->
-      <section class="page" id="intro" aria-labelledby="title-intro">
-        <div class="eyebrow">게임개발실습 · 01</div>
-        <h1 id="title-intro">DEAD SIGNAL</h1>
-        <p class="lead">도망가는 상황에서도 조작에 집중해야 하는 게임입니다</p>
-        <div class="feature">
-          <div class="media-frame" data-no-next=""><img class="media-image" src="image/game_main_01.png" alt="게임 화면 설명" loading="lazy">
-          <div class="media-caption">게임 이미지<span>IMAGE</span></div></div></div>
-      </section>
-      <!-- 화면 02: 어떤 게임인가요? / 제목, 설명, 자료를 여기서 수정하세요. -->
-      <section class="page" id="experience" aria-labelledby="title-experience" hidden>
-        <div class="eyebrow">게임개발실습 · 02</div>
-        <h1 id="title-experience">어떤 게임인가요?</h1>
-        <p class="lead">
-          플레이어에게 공포 상황이 오면, 아슬아슬하게 줄타기하는 듯한 경험을
-          줍니다.
-        </p>
-        <div class="feature">          
-         <div class="media-frame" data-no-next=""><img class="media-image" src="image/game_main_repe.png" alt="메인 레퍼런스 이미지" loading="lazy">
-          <div class="media-caption">게임 이미지<span>IMAGE</span></div></div></div>
-      </section>
-      <!-- 화면 03: 레퍼런스 / 제목, 설명, 자료를 여기서 수정하세요. -->
-      <section class="page" id="reference" aria-labelledby="title-reference" hidden>
-        <div class="eyebrow">게임개발실습 · 03</div>
-        <h1 id="title-reference">참고 게임</h1>
-        <p class="lead">게임을 만들면서 이런 부분들을 참고했습니다.</p>
-        <div class="cards three">
-          <article class="card reference-card" role="button" tabindex="0" aria-haspopup="dialog" data-no-next>
-            <img class="media-image" src="image/deadBydaylight_01.png" alt="게임 화면 설명" loading="lazy">
-
-            <img class="media-image" src="image/deadBydaylight_02.png" alt="게임 화면 설명" loading="lazy">
-
-            <h3>데드 바이 데이라이트</h3>
-            <p>QTE와 숨는 행동 및 케비넷</p>
-          <span class="reference-open">클릭해서 크게 보기 ↗</span></article>
-          <article class="card reference-card" role="button" tabindex="0" aria-haspopup="dialog" data-no-next>
-            <video class="media-image" muted playsinline preload="metadata" src="./image/sinYowamari_01.mp4"></video>
-
-            <h3>신 요마와리</h3>
-            <p>심박 소리와 UI</p>
-          <span class="reference-open">클릭해서 크게 보기 ↗</span></article>
-          <article class="card reference-card" role="button" tabindex="0" aria-haspopup="dialog" data-no-next>
-            <img class="media-image" src="image/isaac_01.png" alt="게임 화면 설명" loading="lazy">
-            <img class="media-image" src="image/isaac_02.png" alt="게임 화면 설명" loading="lazy">
-
-            <h3>아이작의 번제</h3>
-            <p>맵이 뻗어나가는 구성</p>
-          <span class="reference-open">클릭해서 크게 보기 ↗</span></article>
-        </div>
-      </section>
-      <!-- 화면 04: 역할 분배 / 제목, 설명, 자료를 여기서 수정하세요. -->
-      <section class="page" id="mvp" aria-labelledby="title-mvp" hidden>
-        <div class="eyebrow">게임개발실습 · 04</div>
-        <h1 id="title-mvp">역할 분배</h1>
-        <p class="lead">우선 기본 기능부터 만들기 위해 역할을 나눴습니다.</p>
-        <div class="cards three">
-          <article class="card hover-info">
-            <span class="tag">1.</span>
-            <h3>승리 조건</h3>
-            <p>담당자: 곽태호</p>
-            <p>구현 범위: 탈출을 하기 위한 장치 및 탈출구 만들기</p>
-          </article>
-          <article class="card hover-info">
-            <span class="tag">2.</span>
-            <h3>플레이어</h3>
-            <p>담당자: 김해아</p>
-            <p>구현 범위: Unity 맵 안에서 움직임이 구현된 플레이어</p>
-          </article>
-          <article class="card hover-info">
-            <span class="tag">3.</span>
-            <h3>적 AI</h3>
-            <p>담당자: 이현석</p>
-            <p>구현 범위: 플레이어를 인지하며 이동하는 적 구현</p>
-          </article>
-          <article class="card hover-info">
-            <span class="tag">4.</span>
-            <h3>UI</h3>
-            <p>담당자: 김세환</p>
-            <p>구현 범위: 유니티 내 기본 GUI 세팅</p>
-          </article>
-          <article class="card hover-info">
-            <span class="tag">5.</span>
-            <h3>그래픽</h3>
-            <p>담당자: 이태윤</p>
-            <p>
-              구현 범위: 레퍼런스 이미지 찾은 것을 참고하여 몇 개 만들어보기
+        <!-- 화면 01: 소개 / 제목, 설명, 자료를 여기서 수정하세요. -->
+        <section class="page" id="intro" aria-labelledby="title-intro">
+            <div class="eyebrow">게임개발실습 · 01</div>
+            <h1 id="title-intro">DEAD SIGNAL</h1>
+            <p class="lead">도망가는 상황에서도 조작에 집중해야 하는 게임입니다</p>
+            <div class="feature">
+                <div class="media-frame" data-no-next=""><img class="media-image" src="image/game_main_01.png" alt="게임 화면 설명" loading="lazy">
+                    <div class="media-caption">게임 이미지<span>IMAGE</span></div>
+                </div>
+            </div>
+        </section>
+        <!-- 화면 02: 어떤 게임인가요? / 제목, 설명, 자료를 여기서 수정하세요. -->
+        <section class="page" id="experience" aria-labelledby="title-experience" hidden>
+            <div class="eyebrow">게임개발실습 · 02</div>
+            <h1 id="title-experience">어떤 게임인가요?</h1>
+            <p class="lead">
+                플레이어에게 공포 상황이 오면, 아슬아슬하게 줄타기하는 듯한 경험을
+                줍니다.
             </p>
-          </article>
-          <article class="card hover-info">
-            <span class="tag">6.</span>
-            <h3>사운드</h3>
-            <p>담당자: 박종빈</p>
-            <p>구현 범위: 소리 에셋들 네이밍규칙 설정해서 깃허브에 업로드</p>
-          </article>
-        </div>
-      </section>
-      <!-- 화면 05: 승리 조건 / 제목, 설명, 자료를 여기서 수정하세요. -->
-      <section class="page" id="goal" aria-labelledby="title-goal" hidden>
-        <div class="eyebrow">게임개발실습 · 05</div>
-        <h1 id="title-goal">승리 조건</h1>
-        <p class="lead">장치 4개를 활성화하여 탈출구를 열고 탈출합니다.</p>
-        <div class="feature">
-          <div class="media-frame" data-no-next=""><video class="media-image" controls preload="metadata" src="./image/game_clear_01.mp4"></video>
-          <div class="media-caption">플레이 화면<span>영상 재생</span></div></div><aside class="card">
-            <h3>만든 내용</h3>
-            <p>E를 홀드하면 탈출 장치 게이지가 오르고 4개를 모두 활성화하면 탈출구가 열린다.</p>
-            <p>배터리를 추가하고 배터리를 넣어야만 작동하게 만들었다.</p>
-          </aside>
-        </div>
-      </section>
-      <!-- 화면 06: 플레이어 / 제목, 설명, 자료를 여기서 수정하세요. -->
-      <section class="page" id="player" aria-labelledby="title-player" hidden><div class="eyebrow">게임개발실습 · 06</div><h1 id="title-player">플레이어 조작</h1><p class="lead">자주 쓰는 조작과 기본 구조를 먼저 만들었습니다.</p><div class="feature control-layout"><div class="media-frame" data-no-next=""><video class="media-image" controls muted playsinline preload="auto" style="width:100%; min-height:300px;">
-  <source src="./image/game_player_01.mp4" type="video/mp4">
-  동영상을 재생할 수 없습니다.
-</source></video>
-          <div class="media-caption">플레이 화면<span>영상 재생</span></div></div><div class="table-wrap" data-no-next><table><thead><tr><th>조작</th><th>키</th><th>동작</th></tr></thead><tbody><tr><td>이동</td><td>WASD</td><td>상하좌우 이동</td></tr><tr><td>달리기</td><td>Shift</td><td>기본 이동의 1.8배</td></tr><tr><td>앉기</td><td>Ctrl</td><td>자세를 낮춰 환풍구 진입</td></tr><tr><td>시점</td><td>마우스</td><td>주변을 둘러보기</td></tr><tr><td>상호작용</td><td>E</td><td>물건 줍기 / 문 열기</td></tr><tr><td>버리기</td><td>F</td><td>보유한 물건 버리기</td></tr><tr><td>아이템 선택</td><td>1~3 / 0</td><td>아이템 선택 / 맨손 전환</td></tr><tr><td>메뉴·확인</td><td>Esc / Enter</td><td>메뉴 열기·UI 종료 / 선택 확인</td></tr></tbody></table></div></div><div class="info-panel hover-info" data-no-next><h3>제작 의도와 앞으로 바뀔 점</h3><p>맵 이동, 아이템 습득, 문과 장치의 상호작용에 공통으로 사용할 기본 구조를 만들었습니다.</p><p>앞으로 기믹과 QTE를 연결하면서 조작 안내와 입력 방식을 조정할 수 있습니다.</p><p class="subtle">V 시점 전환은 필요 여부를 최종 확인할 항목입니다. 영상은 10초 이내로 준비합니다.</p></div></section><!-- 화면 07: 적 AI / 제목, 설명, 자료를 여기서 수정하세요. -->
-      <section class="page" id="enemy" aria-labelledby="title-enemy" hidden><div class="eyebrow">게임개발실습 · 07</div><h1 id="title-enemy">적 이동과 추격</h1><p class="lead">순찰하다가 플레이어를 발견하면 추격합니다.</p><div class="feature"><div class="media-frame" data-no-next=""><video class="media-image" controls preload="metadata" src="./image/game_enemy_01.mp4" muted loop></video>
-          <div class="media-caption">플레이 화면<span>영상 재생</span></div></div><div class="info-panel hover-info" data-no-next><h3>기본 이동 로직</h3><ol class="steps"><li>벽을 인지하며 랜덤 방향으로 순찰</li><li>플레이어를 감지하면 추격 시작</li><li>시야에서 5초 이상 벗어나면 추격 중단</li></ol><p class="subtle">시연 영상은 10초 이내로 준비합니다.</p></div></div><div class="info-panel hover-info" data-no-next><h3>개발 중 개선·변경할 부분</h3><p>플레이어 감지를 기존 부채꼴 범위 방식에서 레이캐스트 방식으로 바꾸는 방향을 검토합니다.</p><p>벽에 끼지 않고 이동하는지, 감지와 추격 해제가 자연스러운지 확인합니다.</p><p class="subtle">발표 전 실제 반영 상태를 확인해 변경 전·후를 구분해서 설명합니다.</p></div></section><section class="page" id="enemy-special" aria-labelledby="title-enemy-special" hidden><div class="eyebrow">게임개발실습 · 08</div><h1 id="title-enemy-special">특수 적</h1><p class="lead">손전등과 심박수에 반응하는 적 · 다음 구현 계획</p><div class="feature"><div class="pending" data-no-next><strong>특수 적 이미지</strong><p>자료 준비 중 · 이 영역을 이미지 또는 영상으로 교체하세요</p></div><div class="info-panel hover-info" data-no-next><h3>특수 적의 행동</h3><p>기본 적보다 빠르게 이동합니다.</p><p>플레이어의 심박수가 높을수록 더 빨라집니다.</p><p>손전등을 적에게 비추면 멈춥니다.</p><p class="subtle">현재 구현 범위와 예정된 규칙을 구분해 발표합니다.</p></div></div></section><!-- 화면 08: UI / 제목, 설명, 자료를 여기서 수정하세요. -->
-      <section class="page" id="ui" aria-labelledby="title-ui" hidden><div class="eyebrow">게임개발실습 · 09</div><h1 id="title-ui">UI 구성과 피드백</h1><p class="lead">플레이 중 확인할 정보와 잠깐 나타나는 안내를 나눕니다.</p><div class="feature"><div class="media-frame" data-no-next=""><video class="media-image" controls preload="metadata" src="./image/game_ui_01.mp4" muted loop></video>
-          <div class="media-caption">플레이 화면<span>영상 재생</span></div></div><div class="info-panel hover-info" data-no-next><h3>화면에 표시하는 정보</h3><div class="ui-item"><b>항상 보이는 UI · HUD</b><p>플레이 중 상태를 확인하는 체력·심박수 표시입니다.</p></div><div class="ui-item"><b>일시적 UI</b><p>상호작용 안내나 이벤트 알림처럼 필요한 순간에 나타나는 표시입니다. 실제 구현한 항목을 여기에 정리합니다.</p></div><div class="ui-item"><b>이벤트에 대한 반응</b><p>기존 구현 설명: 체력이 줄어들면 심박수가 올라가고 심장 박동이 빨라집니다.</p></div></div></div></section><section class="page" id="graphic-direction" aria-labelledby="title-graphic-direction" hidden><div class="eyebrow">게임개발실습 · 10</div><h1 id="title-graphic-direction">그래픽 분위기와 색상</h1><p class="lead">공간 전체의 분위기와 오브젝트 제작 기준을 함께 보여줍니다.</p><div class="art-layout"><div class="artboard"><div class="pending" data-no-next><strong>분위기 레퍼런스 · 공간 풀샷</strong><p>자료 준비 중 · 이 영역을 이미지 또는 영상으로 교체하세요</p></div><div class="asset-row"><div class="pending" data-no-next><strong>에셋 참고 01</strong><p>자료 준비 중 · 이 영역을 이미지 또는 영상으로 교체하세요</p></div><div class="pending" data-no-next><strong>에셋 참고 02</strong><p>자료 준비 중 · 이 영역을 이미지 또는 영상으로 교체하세요</p></div></div></div><div class="stack"><div class="info-panel hover-info" data-no-next><h3>색상 팔레트</h3><div class="swatches"><div style="background:#f6f5ee">Porcelain <b>60%</b></div><div style="background:#d4e8f7">Icy Blue <b>30%</b></div><div style="background:#e5f174">Lime Cream <b>10%</b></div></div><p>넓은 바탕, 보조 영역, 강조 영역으로 나눠 사용합니다.</p><p class="subtle">위 팔레트는 발표 HTML 기준입니다. 게임 그래픽의 색상은 실제 분위기 보드에 맞게 수정하세요.</p></div><div class="info-panel hover-info" data-no-next><h3>분위기 설명 / AI 프롬프트</h3><p>[공간에서 느껴졌으면 하는 분위기]</p><p>[메시 형태 / 채색 기법 / 오브젝트 특징]</p><p class="subtle">실제 제작에 사용한 문장이나 프롬프트를 넣어주세요.</p></div></div></div></section><section class="page" id="graphic-reference" aria-labelledby="title-graphic-reference" hidden><div class="eyebrow">게임개발실습 · 11</div><h1 id="title-graphic-reference">그래픽 제작 레퍼런스</h1><p class="lead">어느 부분을 참고했는지 자료 바로 아래에 설명합니다.</p><div class="reference-grid"><article class="card evidence-card" data-no-next><div class="pending" data-no-next><strong>참고 게임 이미지 / 영상</strong><p>자료 준비 중 · 이 영역을 이미지 또는 영상으로 교체하세요</p></div><h3>그림자·실루엣</h3><p>[그림자 경계와 물체의 외곽 형태에서 참고한 부분]</p></article><article class="card evidence-card" data-no-next><div class="pending" data-no-next><strong>참고 게임 이미지 / 영상</strong><p>자료 준비 중 · 이 영역을 이미지 또는 영상으로 교체하세요</p></div><h3>배경 단순화·벽 높이</h3><p>[배경의 정보량과 벽 높이에서 참고한 부분]</p></article><article class="card evidence-card" data-no-next><div class="pending" data-no-next><strong>참고 게임 이미지 / 영상</strong><p>자료 준비 중 · 이 영역을 이미지 또는 영상으로 교체하세요</p></div><h3>빛 퍼짐</h3><p>[광원이 퍼지는 범위와 밝기 대비에서 참고한 부분]</p></article></div></section><!-- 화면 09: 그래픽 / 제목, 설명, 자료를 여기서 수정하세요. -->
-      <section class="page" id="graphic" aria-labelledby="title-graphic" hidden>
-        <div class="eyebrow">게임개발실습 · 12</div>
-        <h1 id="title-graphic">그래픽 제작</h1>
-        <p class="lead">레퍼런스를 바탕으로 실제 제작한 오브젝트입니다.</p>
-        <div class="cards three">
-          <article class="card evidence-card" data-no-next="">
-            <img class="media-image" src="image/game_object_01.png" alt="게임 화면 설명" loading="lazy">
-            <h3>링거대</h3>
-            <p>게임 내 충돌 오브젝트</p>
-          </article>
-          <article class="card evidence-card" data-no-next="">
-            <img class="media-image" src="image/game_object_02.png" alt="게임 화면 설명" loading="lazy">
-            <h3>병원 침대</h3>
-            <p>게임 내 충돌 오브젝트</p>
-          </article>
-          <article class="card evidence-card" data-no-next="">
-            <img class="media-image" src="image/game_object_03.png" alt="게임 화면 설명" loading="lazy">
-            <h3>수술 가림막</h3>
-            <p>게임 내 충돌 오브젝트</p>
-          </article>
-        </div>
-      </section>
-      <!-- 화면 10: 사운드 / 제목, 설명, 자료를 여기서 수정하세요. -->
-      <section class="page" id="sound" aria-labelledby="title-sound" hidden>
-        <div class="eyebrow">게임개발실습 · 13</div>
-        <h1 id="title-sound">사운드 구성</h1>
-        <p class="lead">주요 소리의 용도와 실제 음원을 함께 확인합니다.</p>
-        <div class="table-wrap" data-no-next><table><thead><tr><th>소리</th><th>사용 상황</th></tr></thead><tbody><tr><td>메인 타이틀 BGM</td><td>게임 시작 후 메인 화면에서 나오는 음악</td></tr><tr><td>적 추격 시작 BGM</td><td>적이 플레이어를 확신하고 추격을 시작했을 때 BGM</td></tr><tr><td>환경음</td><td>기본 엠비언트 음향효과</td></tr><tr><td>심장 박동 소리</td><td>적이 근처에 있을 때 나는 소리</td></tr><tr><td>거친 숨 소리</td><td>적 추격에서 벗어나거나 달릴 때 효과음</td></tr><tr><td>걸어다니는 소리</td><td>기본 플레이어 걷기 소리</td></tr></tbody></table></div><div class="cards three">
-          <article class="card audio-card" data-no-next>
-            <h3>메인 타이틀 BGM</h3>
-            <p>게임 시작 후 메인 화면에서 나오는 음악</p>
-            <audio src="./sound/BGM_Menu_Title_Loop_01%201.wav" controls loop preload="none" aria-label="메인 타이틀 BGM"></audio>
-          </article>
-          <article class="card audio-card" data-no-next>
-            <h3>적 추격 시작 BGM</h3>
-            <p>적이 플레이어를 확신하고 추격을 시작했을 때 BGM</p>
-            <audio src="./sound/BGM_Chase_Ative_OneShot_01.wav" controls preload="none" aria-label="적 추격 시작 BGM"></audio>
-          </article>
-           <article class="card audio-card" data-no-next>
-            <h3>환경음</h3>
-            <p>기본 엠비언트 음향효과</p>
-            <audio src="./sound/AMB_Hospital_RoomTone_Loop_02.wav" controls loop preload="none" aria-label="환경음"></audio>
-          </article>
-          <article class="card audio-card" data-no-next>
-            <h3>심장 박동 소리</h3>
-            <p>적이 근처에 있을 때 나는 소리</p>
-            <audio src="./sound/SFX_Player_Heartbeat_Loop_02.wav" controls preload="none" aria-label="심장 박동 소리"></audio>
-          </article>
-          <article class="card audio-card" data-no-next>
-            <h3>거친 숨 소리</h3>
-            <p>적 추격에서 벗어나거나 달릴 때 효과음</p>
-            <audio src="./sound/SFX_Player_Breath_Heavy_OneShot_01.wav" controls loop preload="none" aria-label="거친 숨 소리"></audio>
-          </article>
-          <article class="card audio-card" data-no-next>
-            <h3>걸어다니는 소리</h3>
-            <p>기본 플레이어 걷기 소리</p>
-            <audio src="./sound/SFX_Player_Walk_Idle_Loop_01.wav" controls loop preload="none" aria-label="걸어다니는 소리"></audio>
-          </article>
-        </div>
-      </section>
-      <section class="page" id="sound-process" aria-labelledby="title-sound-process" hidden><div class="eyebrow">게임개발실습 · 14</div><h1 id="title-sound-process">사운드를 합치면</h1><p class="lead">장면에 따라 어떤 소리가 겹치는지 보여줍니다.</p><div class="feature"><div class="track-panel" data-no-next><h3>장면별 소리 구성</h3><div class="track-ruler"><span>탐색</span><span>발견</span><span>추격</span></div><div class="track-row"><span>환경음</span><div class="track-lane"><div class="track-clip clip-0" style="left:0%;width:100%"><i></i></div></div></div><div class="track-row"><span>발소리</span><div class="track-lane"><div class="track-clip clip-1" style="left:8%;width:35%"><i></i></div></div></div><div class="track-row"><span>적 추격 BGM</span><div class="track-lane"><div class="track-clip clip-2" style="left:46%;width:49%"><i></i></div></div></div><div class="track-row"><span>심장 박동</span><div class="track-lane"><div class="track-clip clip-3" style="left:35%;width:62%"><i></i></div></div></div><p class="subtle">구성 설명용 예시입니다. 실제 음원 분석 결과나 정확한 재생 타이밍을 나타내지 않습니다.</p></div><div class="info-panel audio-card" data-no-next><h3>종합 사운드 재생</h3><p>환경음·발소리·추격음이 함께 들리는 시연 음원을 넣어주세요.</p><!-- TODO: 종합 음원 파일을 준비한 뒤 아래 audio에 src="./sound/파일명.mp3" 추가 --><audio controls preload="none" aria-label="종합 사운드"></audio><p class="subtle">아직 종합 음원이 연결되지 않았습니다.</p></div></div><div class="info-panel hover-info" data-no-next><h3>사운드 소스를 정리하는 방식</h3><p>용도에 따라 BGM / AMB / SFX로 분류하고, 재생 상황과 방식이 드러나도록 파일명을 정리했습니다.</p><code class="filename">SFX_Player_Heartbeat_Loop_02.wav</code><p>분류 → 대상 → 행동·상태 → Loop / OneShot → 번호</p><p class="subtle">사용할 소리마다 출처와 라이선스, 실제 적용할 장면을 함께 기록합니다.</p></div></section><!-- 화면 11: 통합 결과 / 제목, 설명, 자료를 여기서 수정하세요. -->
-      <section class="page" id="build" aria-labelledby="title-build" hidden>
-        <div class="eyebrow">게임개발실습 · 15</div>
-        <h1 id="title-build">통합 플레이</h1>
-        <p class="lead">각자 만든 것들을 합치면 대략 이런 모습입니다.</p>
-        <div class="feature">
-          <div class="media-frame" data-no-next=""><img class="media-image" src="./image/game_marge.png" alt="게임 화면 설명" loading="lazy">
-          <div class="media-caption">게임 이미지<span>IMAGE</span></div></div><aside class="card">
-          </aside>
-        </div>
-      </section>
-      <!-- 화면 12: 다음 목표 / 제목, 설명, 자료를 여기서 수정하세요. -->
-      <section class="page" id="next" aria-labelledby="title-next" hidden>
-        <div class="eyebrow">게임개발실습 · 16</div>
-        <h1 id="title-next">앞으로 할 것</h1>
-        <p class="lead">앞으로 할 것과 다음 테스트 목표를 정리합니다.</p>
-        <div class="cards three">
-          <article class="card hover-info">
-            <h3>심박수와 추격 연결</h3>
-            <p>심박수 플레이어와 연결</p>
-          </article>
-          <article class="card hover-info">
-            <h3>QTE 구현</h3>
-            <p>QTE 스킬체크 기능과 간단한 미니게임으로 상자나 기믹과의 상호작용을 구현</p>
-          </article>
-          <article class="card hover-info">
-            <h3>손전등 시스템 구현</h3>
-            <p>탈출에 필요한 베터리를 손전등 or 탈출장치에 사용하는 이지선다 시스템</p>
-          </article>
-        </div>
-      </section>
-      <!-- 화면 13: 마무리 / 제목, 설명, 자료를 여기서 수정하세요. -->
-      <section class="page" id="end" aria-labelledby="title-end" hidden>
-        <div class="eyebrow">게임개발실습 · 17</div>
-        <h1 id="title-end">감사합니다.</h1>
-        <p class="lead">DEAD SIGNAL · 게임개발실습</p>
-        <div class="end-mark">DEAD / SIGNAL</div>
-      </section>
+            <div class="feature">
+                <div class="media-frame" data-no-next=""><img class="media-image" src="image/game_main_repe.png" alt="메인 레퍼런스 이미지" loading="lazy">
+                    <div class="media-caption">게임 이미지<span>IMAGE</span></div>
+                </div>
+            </div>
+        </section>
+        <!-- 화면 03: 레퍼런스 / 제목, 설명, 자료를 여기서 수정하세요. -->
+        <section class="page" id="reference" aria-labelledby="title-reference" hidden>
+            <div class="eyebrow">게임개발실습 · 03</div>
+            <h1 id="title-reference">참고 게임</h1>
+            <p class="lead">게임을 만들면서 이런 부분들을 참고했습니다.</p>
+            <div class="cards three">
+                <article class="card reference-card" role="button" tabindex="0" aria-haspopup="dialog" data-no-next>
+                    <img class="media-image" src="image/deadBydaylight_01.png" alt="게임 화면 설명" loading="lazy">
+
+                    <img class="media-image" src="image/deadBydaylight_02.png" alt="게임 화면 설명" loading="lazy">
+
+                    <h3>데드 바이 데이라이트</h3>
+                    <p>QTE와 숨는 행동 및 케비넷</p>
+                    <span class="reference-open">클릭해서 크게 보기 ↗</span>
+                </article>
+                <article class="card reference-card" role="button" tabindex="0" aria-haspopup="dialog" data-no-next>
+                    <video class="media-image" muted playsinline preload="metadata" src="./image/sinYowamari_01.mp4"></video>
+
+                    <h3>신 요마와리</h3>
+                    <p>심박 소리와 UI</p>
+                    <span class="reference-open">클릭해서 크게 보기 ↗</span>
+                </article>
+                <article class="card reference-card" role="button" tabindex="0" aria-haspopup="dialog" data-no-next>
+                    <img class="media-image" src="image/isaac_01.png" alt="게임 화면 설명" loading="lazy">
+                    <img class="media-image" src="image/isaac_02.png" alt="게임 화면 설명" loading="lazy">
+
+                    <h3>아이작의 번제</h3>
+                    <p>맵이 뻗어나가는 구성</p>
+                    <span class="reference-open">클릭해서 크게 보기 ↗</span>
+                </article>
+            </div>
+        </section>
+        <!-- 화면 04: 역할 분배 / 제목, 설명, 자료를 여기서 수정하세요. -->
+        <section class="page" id="mvp" aria-labelledby="title-mvp" hidden>
+            <div class="eyebrow">게임개발실습 · 04</div>
+            <h1 id="title-mvp">역할 분배</h1>
+            <p class="lead">우선 기본 기능부터 만들기 위해 역할을 나눴습니다.</p>
+            <div class="cards three">
+                <article class="card hover-info">
+                    <span class="tag">1.</span>
+                    <h3>승리 조건</h3>
+                    <p>담당자: 곽태호</p>
+                    <p>구현 범위: 탈출을 하기 위한 장치 및 탈출구 만들기</p>
+                </article>
+                <article class="card hover-info">
+                    <span class="tag">2.</span>
+                    <h3>플레이어</h3>
+                    <p>담당자: 김해아</p>
+                    <p>구현 범위: Unity 맵 안에서 움직임이 구현된 플레이어</p>
+                </article>
+                <article class="card hover-info">
+                    <span class="tag">3.</span>
+                    <h3>적 AI</h3>
+                    <p>담당자: 이현석</p>
+                    <p>구현 범위: 플레이어를 인지하며 이동하는 적 구현</p>
+                </article>
+                <article class="card hover-info">
+                    <span class="tag">4.</span>
+                    <h3>UI</h3>
+                    <p>담당자: 김세환</p>
+                    <p>구현 범위: 유니티 내 기본 GUI 세팅</p>
+                </article>
+                <article class="card hover-info">
+                    <span class="tag">5.</span>
+                    <h3>그래픽</h3>
+                    <p>담당자: 이태윤</p>
+                    <p>
+                        구현 범위: 레퍼런스 이미지 찾은 것을 참고하여 몇 개 만들어보기
+                    </p>
+                </article>
+                <article class="card hover-info">
+                    <span class="tag">6.</span>
+                    <h3>사운드</h3>
+                    <p>담당자: 박종빈</p>
+                    <p>구현 범위: 소리 에셋들 네이밍규칙 설정해서 깃허브에 업로드</p>
+                </article>
+            </div>
+        </section>
+        <!-- 화면 05: 승리 조건 / 제목, 설명, 자료를 여기서 수정하세요. -->
+        <section class="page" id="goal" aria-labelledby="title-goal" hidden>
+            <div class="eyebrow">게임개발실습 · 05</div>
+            <h1 id="title-goal">승리 조건</h1>
+            <p class="lead">장치 4개를 활성화하여 탈출구를 열고 탈출합니다.</p>
+            <div class="feature">
+                <div class="media-frame" data-no-next=""><video class="media-image" controls preload="metadata" src="./image/game_clear_01.mp4"></video>
+                    <div class="media-caption">플레이 화면<span>영상 재생</span></div>
+                </div>
+                <aside class="card">
+                    <h3>만든 내용</h3>
+                    <p>E를 홀드하면 탈출 장치 게이지가 오르고 4개를 모두 활성화하면 탈출구가 열린다.</p>
+                    <p>배터리를 추가하고 배터리를 넣어야만 작동하게 만들었다.</p>
+                </aside>
+            </div>
+        </section>
+        <!-- 화면 06: 플레이어 / 제목, 설명, 자료를 여기서 수정하세요. -->
+        <section class="page" id="player" aria-labelledby="title-player" hidden>
+            <div class="eyebrow">게임개발실습 · 06</div>
+            <h1 id="title-player">플레이어 조작</h1>
+            <p class="lead">자주 쓰는 조작과 기본 구조를 먼저 만들었습니다.</p>
+            <div class="feature control-layout">
+                <div class="media-frame" data-no-next=""><video class="media-image" controls muted playsinline preload="auto" style="width:100%; min-height:300px;">
+                        <source src="./image/game_player_01.mp4" type="video/mp4">
+                        동영상을 재생할 수 없습니다.
+                        </source></video>
+                    <div class="media-caption">플레이 화면<span>영상 재생</span></div>
+                </div>
+                <div class="table-wrap" data-no-next>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>조작</th>
+                                <th>키</th>
+                                <th>동작</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>이동</td>
+                                <td>WASD</td>
+                                <td>상하좌우 이동</td>
+                            </tr>
+                            <tr>
+                                <td>달리기</td>
+                                <td>Shift</td>
+                                <td>기본 이동의 1.8배</td>
+                            </tr>
+                            <tr>
+                                <td>앉기</td>
+                                <td>Ctrl</td>
+                                <td>자세를 낮춰 환풍구 진입</td>
+                            </tr>
+                            <tr>
+                                <td>시점</td>
+                                <td>마우스</td>
+                                <td>주변을 둘러보기</td>
+                            </tr>
+                            <tr>
+                                <td>상호작용</td>
+                                <td>E</td>
+                                <td>물건 줍기 / 문 열기</td>
+                            </tr>
+                            <tr>
+                                <td>버리기</td>
+                                <td>F</td>
+                                <td>보유한 물건 버리기</td>
+                            </tr>
+                            <tr>
+                                <td>아이템 선택</td>
+                                <td>1~3 / 0</td>
+                                <td>아이템 선택 / 맨손 전환</td>
+                            </tr>
+                            <tr>
+                                <td>메뉴·확인</td>
+                                <td>Esc / Enter</td>
+                                <td>메뉴 열기·UI 종료 / 선택 확인</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="info-panel hover-info" data-no-next>
+                <h3>제작 의도와 앞으로 바뀔 점</h3>
+                <p>맵 이동, 아이템 습득, 문과 장치의 상호작용에 공통으로 사용할 기본 구조를 만들었습니다.</p>
+                <p>앞으로 기믹과 QTE를 연결하면서 조작 안내와 입력 방식을 조정할 수 있습니다.</p>
+                <p class="subtle">V 시점 전환은 필요 여부를 최종 확인할 항목입니다. 영상은 10초 이내로 준비합니다.</p>
+            </div>
+        </section><!-- 화면 07: 적 AI / 제목, 설명, 자료를 여기서 수정하세요. -->
+        <section class="page" id="enemy" aria-labelledby="title-enemy" hidden>
+            <div class="eyebrow">게임개발실습 · 07</div>
+            <h1 id="title-enemy">적 이동과 추격</h1>
+            <p class="lead">순찰하다가 플레이어를 발견하면 추격합니다.</p>
+            <div class="feature">
+                <div class="media-frame" data-no-next=""><video class="media-image" controls preload="metadata" src="./image/game_enemy_01.mp4" muted loop></video>
+                    <div class="media-caption">플레이 화면<span>영상 재생</span></div>
+                </div>
+                <div class="info-panel hover-info" data-no-next>
+                    <h3>기본 이동 로직</h3>
+                    <ol class="steps">
+                        <li>벽을 인지하며 랜덤 방향으로 순찰</li>
+                        <li>플레이어를 감지하면 추격 시작</li>
+                        <li>시야에서 5초 이상 벗어나면 추격 중단</li>
+                    </ol>
+                    <p class="subtle">시연 영상은 10초 이내로 준비합니다.</p>
+                </div>
+            </div>
+            <div class="info-panel hover-info" data-no-next>
+                <h3>개발 중 개선·변경할 부분</h3>
+                <p>플레이어 감지를 기존 부채꼴 범위 방식에서 레이캐스트 방식으로 바꾸는 방향을 검토합니다.</p>
+                <p>벽에 끼지 않고 이동하는지, 감지와 추격 해제가 자연스러운지 확인합니다.</p>
+                <p class="subtle">발표 전 실제 반영 상태를 확인해 변경 전·후를 구분해서 설명합니다.</p>
+            </div>
+        </section>
+        <section class="page" id="enemy-special" aria-labelledby="title-enemy-special" hidden>
+            <div class="eyebrow">게임개발실습 · 08</div>
+            <h1 id="title-enemy-special">특수 적</h1>
+            <p class="lead">손전등과 심박수에 반응하는 적 · 다음 구현 계획</p>
+            <div class="feature">
+                <div class="pending" data-no-next><strong>특수 적 이미지</strong>
+                    <p>자료 준비 중 · 이 영역을 이미지 또는 영상으로 교체하세요</p>
+                </div>
+                <div class="info-panel hover-info" data-no-next>
+                    <h3>특수 적의 행동</h3>
+                    <p>기본 적보다 빠르게 이동합니다.</p>
+                    <p>플레이어의 심박수가 높을수록 더 빨라집니다.</p>
+                    <p>손전등을 적에게 비추면 멈춥니다.</p>
+                    <p class="subtle">현재 구현 범위와 예정된 규칙을 구분해 발표합니다.</p>
+                </div>
+            </div>
+        </section><!-- 화면 08: UI / 제목, 설명, 자료를 여기서 수정하세요. -->
+        <section class="page" id="ui" aria-labelledby="title-ui" hidden>
+            <div class="eyebrow">게임개발실습 · 09</div>
+            <h1 id="title-ui">UI 구성과 피드백</h1>
+            <p class="lead">플레이 중 확인할 정보와 잠깐 나타나는 안내를 나눕니다.</p>
+            <div class="feature">
+                <div class="media-frame" data-no-next=""><video class="media-image" controls preload="metadata" src="./image/game_ui_01.mp4" muted loop></video>
+                    <div class="media-caption">플레이 화면<span>영상 재생</span></div>
+                </div>
+                <div class="info-panel hover-info" data-no-next>
+                    <h3>화면에 표시하는 정보</h3>
+                    <div class="ui-item"><b>항상 보이는 UI · HUD</b>
+                        <p>플레이 중 상태를 확인하는 체력·심박수 표시입니다.</p>
+                    </div>
+                    <div class="ui-item"><b>일시적 UI</b>
+                        <p>상호작용 안내나 이벤트 알림처럼 필요한 순간에 나타나는 표시입니다. 실제 구현한 항목을 여기에 정리합니다.</p>
+                    </div>
+                    <div class="ui-item"><b>이벤트에 대한 반응</b>
+                        <p>기존 구현 설명: 체력이 줄어들면 심박수가 올라가고 심장 박동이 빨라집니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="page" id="graphic-direction" aria-labelledby="title-graphic-direction" hidden>
+            <div class="eyebrow">게임개발실습 · 10</div>
+            <h1 id="title-graphic-direction">그래픽 분위기와 색상</h1>
+            <p class="lead">공간 전체의 분위기와 오브젝트 제작 기준을 함께 보여줍니다.</p>
+            <div class="art-layout">
+                <div class="artboard">
+                    <div class="pending" data-no-next><strong>분위기 레퍼런스 · 공간 풀샷</strong>
+                        <p>자료 준비 중 · 이 영역을 이미지 또는 영상으로 교체하세요</p>
+                    </div>
+                    <div class="asset-row">
+                        <div class="pending" data-no-next><strong>에셋 참고 01</strong>
+                            <p>자료 준비 중 · 이 영역을 이미지 또는 영상으로 교체하세요</p>
+                        </div>
+                        <div class="pending" data-no-next><strong>에셋 참고 02</strong>
+                            <p>자료 준비 중 · 이 영역을 이미지 또는 영상으로 교체하세요</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="stack">
+                    <div class="info-panel hover-info" data-no-next>
+                        <h3>색상 팔레트</h3>
+                        <div class="swatches">
+                            <div style="background:#f6f5ee">Porcelain <b>60%</b></div>
+                            <div style="background:#d4e8f7">Icy Blue <b>30%</b></div>
+                            <div style="background:#e5f174">Lime Cream <b>10%</b></div>
+                        </div>
+                        <p>넓은 바탕, 보조 영역, 강조 영역으로 나눠 사용합니다.</p>
+                        <p class="subtle">위 팔레트는 발표 HTML 기준입니다. 게임 그래픽의 색상은 실제 분위기 보드에 맞게 수정하세요.</p>
+                    </div>
+                    <div class="info-panel hover-info" data-no-next>
+                        <h3>분위기 설명 / AI 프롬프트</h3>
+                        <p>[공간에서 느껴졌으면 하는 분위기]</p>
+                        <p>[메시 형태 / 채색 기법 / 오브젝트 특징]</p>
+                        <p class="subtle">실제 제작에 사용한 문장이나 프롬프트를 넣어주세요.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="page" id="graphic-reference" aria-labelledby="title-graphic-reference" hidden>
+            <div class="eyebrow">게임개발실습 · 11</div>
+            <h1 id="title-graphic-reference">그래픽 제작 레퍼런스</h1>
+            <p class="lead">어느 부분을 참고했는지 자료 바로 아래에 설명합니다.</p>
+            <div class="reference-grid">
+                <article class="card evidence-card" data-no-next>
+                    <div class="pending" data-no-next><strong>참고 게임 이미지 / 영상</strong>
+                        <p>자료 준비 중 · 이 영역을 이미지 또는 영상으로 교체하세요</p>
+                    </div>
+                    <h3>그림자·실루엣</h3>
+                    <p>[그림자 경계와 물체의 외곽 형태에서 참고한 부분]</p>
+                </article>
+                <article class="card evidence-card" data-no-next>
+                    <div class="pending" data-no-next><strong>참고 게임 이미지 / 영상</strong>
+                        <p>자료 준비 중 · 이 영역을 이미지 또는 영상으로 교체하세요</p>
+                    </div>
+                    <h3>배경 단순화·벽 높이</h3>
+                    <p>[배경의 정보량과 벽 높이에서 참고한 부분]</p>
+                </article>
+                <article class="card evidence-card" data-no-next>
+                    <div class="pending" data-no-next><strong>참고 게임 이미지 / 영상</strong>
+                        <p>자료 준비 중 · 이 영역을 이미지 또는 영상으로 교체하세요</p>
+                    </div>
+                    <h3>빛 퍼짐</h3>
+                    <p>[광원이 퍼지는 범위와 밝기 대비에서 참고한 부분]</p>
+                </article>
+            </div>
+        </section><!-- 화면 09: 그래픽 / 제목, 설명, 자료를 여기서 수정하세요. -->
+        <section class="page" id="graphic" aria-labelledby="title-graphic" hidden>
+            <div class="eyebrow">게임개발실습 · 12</div>
+            <h1 id="title-graphic">그래픽 제작</h1>
+            <p class="lead">레퍼런스를 바탕으로 실제 제작한 오브젝트입니다.</p>
+            <div class="cards three">
+                <article class="card evidence-card" data-no-next="">
+                    <img class="media-image" src="image/game_object_01.png" alt="게임 화면 설명" loading="lazy">
+                    <h3>링거대</h3>
+                    <p>게임 내 충돌 오브젝트</p>
+                </article>
+                <article class="card evidence-card" data-no-next="">
+                    <img class="media-image" src="image/game_object_02.png" alt="게임 화면 설명" loading="lazy">
+                    <h3>병원 침대</h3>
+                    <p>게임 내 충돌 오브젝트</p>
+                </article>
+                <article class="card evidence-card" data-no-next="">
+                    <img class="media-image" src="image/game_object_03.png" alt="게임 화면 설명" loading="lazy">
+                    <h3>수술 가림막</h3>
+                    <p>게임 내 충돌 오브젝트</p>
+                </article>
+            </div>
+        </section>
+        <!-- 화면 10: 사운드 / 제목, 설명, 자료를 여기서 수정하세요. -->
+        <section class="page" id="sound" aria-labelledby="title-sound" hidden>
+            <div class="eyebrow">게임개발실습 · 13</div>
+            <h1 id="title-sound">사운드 구성</h1>
+            <p class="lead">주요 소리의 용도와 실제 음원을 함께 확인합니다.</p>
+            <div class="table-wrap" data-no-next>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>소리</th>
+                            <th>사용 상황</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>메인 타이틀 BGM</td>
+                            <td>게임 시작 후 메인 화면에서 나오는 음악</td>
+                        </tr>
+                        <tr>
+                            <td>적 추격 시작 BGM</td>
+                            <td>적이 플레이어를 확신하고 추격을 시작했을 때 BGM</td>
+                        </tr>
+                        <tr>
+                            <td>환경음</td>
+                            <td>기본 엠비언트 음향효과</td>
+                        </tr>
+                        <tr>
+                            <td>심장 박동 소리</td>
+                            <td>적이 근처에 있을 때 나는 소리</td>
+                        </tr>
+                        <tr>
+                            <td>거친 숨 소리</td>
+                            <td>적 추격에서 벗어나거나 달릴 때 효과음</td>
+                        </tr>
+                        <tr>
+                            <td>걸어다니는 소리</td>
+                            <td>기본 플레이어 걷기 소리</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="cards three">
+                <article class="card audio-card" data-no-next>
+                    <h3>메인 타이틀 BGM</h3>
+                    <p>게임 시작 후 메인 화면에서 나오는 음악</p>
+                    <audio src="./sound/bgm_title_main.wav" controls loop preload="none" aria-label="메인 타이틀 BGM"></audio>
+                </article>
+                <article class="card audio-card" data-no-next>
+                    <h3>적 추격 시작 BGM</h3>
+                    <p>적이 플레이어를 확신하고 추격을 시작했을 때 BGM</p>
+                    <audio src="./sound/bgm_chase.wav" controls preload="none" aria-label="적 추격 시작 BGM"></audio>
+                </article>
+                <article class="card audio-card" data-no-next>
+                    <h3>환경음</h3>
+                    <p>기본 엠비언트 음향효과</p>
+                    <audio src="./sound/amb_white_noise 1.wav" controls loop preload="none" aria-label="환경음"></audio>
+                </article>
+                <article class="card audio-card" data-no-next>
+                    <h3>심장 박동 소리</h3>
+                    <p>적이 근처에 있을 때 나는 소리</p>
+                    <audio src="./sound/sfx_player_heartbeat.wav" controls preload="none" aria-label="심장 박동 소리"></audio>
+                </article>
+                <article class="card audio-card" data-no-next>
+                    <h3>거친 숨 소리</h3>
+                    <p>적 추격에서 벗어나거나 달릴 때 효과음</p>
+                    <audio src="./sound/SFX_Player_Breath_Heavy_Loop_01.wav" controls loop preload="none" aria-label="거친 숨 소리"></audio>
+                </article>
+                <article class="card audio-card" data-no-next>
+                    <h3>걸어다니는 소리</h3>
+                    <p>기본 플레이어 걷기 소리</p>
+                    <audio src="./sound/sfx_player_footstep_run.wav" controls loop preload="none" aria-label="걸어다니는 소리"></audio>
+                </article>
+            </div>
+        </section>
+        <!-- 사운드 2 시작: 이미지와 음원은 src만 바꾸면 됩니다. -->
+        <section class="page" id="sound-process" aria-labelledby="title-sound-process" hidden>
+            <div class="eyebrow">게임개발실습 · 14</div>
+            <h1 id="title-sound-process">사운드를 합치면</h1>
+            <p class="lead">장면에 따라 어떤 소리가 겹치는지 보여줍니다.</p>
+            <div class="feature">
+                <div class="track-panel" data-no-next>
+                    <img class="media-image" src="./image/audio_track.png" alt="사운드 트랙 이미지" loading="lazy">
+                </div>
+                <div class="info-panel audio-card" data-no-next>
+                    <h3>종합 사운드 재생</h3>
+                    <p>환경음·발소리·추격음이 함께 들리는 시연 음원입니다.</p>
+                    <!-- 종합 음원 교체: 아래 audio의 src만 수정하세요. -->
+                    <audio src="./sound/sound_track.m4a" controls preload="none" aria-label="종합 사운드"></audio>
+                    <p class="subtle">재생 버튼을 눌러 종합 사운드를 들어보세요.</p>
+                </div>
+            </div>
+            <div class="info-panel hover-info" data-no-next>
+                <h3>사운드 소스를 정리하는 네이밍 규칙</h3>
+                <p>용도에 따라 BGM / AMB / SFX로 분류. 재생 상황과 방식이 드러나도록 파일의 네이밍 규칙을 적용했습니다.</p>
+                <code class="filename">sfx_player_footstep_run.wav</code>
+                <p>[분류_대상_행동·상태_번호] Loop / OneShot</p>
+                <p class="subtle">Freesound 플랫폼과 Sonniss GDC Audio Bundle의 무료 라이선스를 사용했습니다.</p>
+            </div>
+        </section>
+        <!-- 사운드 2 끝 -->
+        <!-- 화면 11: 통합 결과 / 제목, 설명, 자료를 여기서 수정하세요. -->
+        <section class="page" id="build" aria-labelledby="title-build" hidden>
+            <div class="eyebrow">게임개발실습 · 15</div>
+            <h1 id="title-build">통합 플레이</h1>
+            <p class="lead">각자 만든 것들을 합치면 대략 이런 모습입니다.</p>
+            <div class="feature">
+                <div class="media-frame" data-no-next=""><img class="media-image" src="./image/game_marge.png" alt="게임 화면 설명" loading="lazy">
+                    <div class="media-caption">게임 이미지<span>IMAGE</span></div>
+                </div>
+                <aside class="card">
+                </aside>
+            </div>
+        </section>
+        <!-- 화면 12: 다음 목표 / 제목, 설명, 자료를 여기서 수정하세요. -->
+        <section class="page" id="next" aria-labelledby="title-next" hidden>
+            <div class="eyebrow">게임개발실습 · 16</div>
+            <h1 id="title-next">앞으로 할 것</h1>
+            <p class="lead">앞으로 할 것과 다음 테스트 목표를 정리합니다.</p>
+            <div class="cards three">
+                <article class="card hover-info">
+                    <h3>심박수와 추격 연결</h3>
+                    <p>심박수 플레이어와 연결</p>
+                </article>
+                <article class="card hover-info">
+                    <h3>QTE 구현</h3>
+                    <p>QTE 스킬체크 기능과 간단한 미니게임으로 상자나 기믹과의 상호작용을 구현</p>
+                </article>
+                <article class="card hover-info">
+                    <h3>손전등 시스템 구현</h3>
+                    <p>탈출에 필요한 베터리를 손전등 or 탈출장치에 사용하는 이지선다 시스템</p>
+                </article>
+            </div>
+        </section>
+        <!-- 화면 13: 마무리 / 제목, 설명, 자료를 여기서 수정하세요. -->
+        <section class="page" id="end" aria-labelledby="title-end" hidden>
+            <div class="eyebrow">게임개발실습 · 17</div>
+            <h1 id="title-end">감사합니다.</h1>
+            <p class="lead">DEAD SIGNAL · 게임개발실습</p>
+            <div class="end-mark">DEAD / SIGNAL</div>
+        </section>
     </main>
 
-<!-- 카드 안에 img / video를 추가하면 모달 자료에도 자동으로 추가됩니다. 파일 경로는 기존 카드에서 수정하세요. -->
-<dialog id="reference-modal" aria-labelledby="reference-modal-title" aria-describedby="reference-modal-description">
- <div class="modal-heading"><h2 id="reference-modal-title"></h2><button type="button" class="modal-close" id="reference-modal-close" aria-label="레퍼런스 닫기">닫기 ×</button></div>
- <p class="modal-description" id="reference-modal-description"></p>
- <div class="modal-viewer" id="reference-modal-viewer"></div>
- <div class="modal-navigation"><button type="button" id="reference-media-prev">← 이전 자료</button><span class="modal-count" id="reference-media-count" aria-live="polite"></span><button type="button" id="reference-media-next">다음 자료 →</button></div>
-</dialog>
+    <!-- 카드 안에 img / video를 추가하면 모달 자료에도 자동으로 추가됩니다. 파일 경로는 기존 카드에서 수정하세요. -->
+    <dialog id="reference-modal" aria-labelledby="reference-modal-title" aria-describedby="reference-modal-description">
+        <div class="modal-heading">
+            <h2 id="reference-modal-title"></h2><button type="button" class="modal-close" id="reference-modal-close" aria-label="레퍼런스 닫기">닫기 ×</button>
+        </div>
+        <p class="modal-description" id="reference-modal-description"></p>
+        <div class="modal-viewer" id="reference-modal-viewer"></div>
+        <div class="modal-navigation"><button type="button" id="reference-media-prev">← 이전 자료</button><span class="modal-count" id="reference-media-count" aria-live="polite"></span><button type="button" id="reference-media-next">다음 자료 →</button></div>
+    </dialog>
     <footer>
-      <span class="hint">빈 공간 클릭 / ← → / Space 이동 · Home 처음 · End 끝</span>
-      <div class="controls">
-        <button id="prev" type="button" aria-label="이전 화면">← 이전</button><span id="progress" aria-live="polite"></span><button id="next-page" type="button" aria-label="다음 화면">다음 →</button>
-      </div>
+        <span class="hint">빈 공간 클릭 / ← → / Space 이동 · Home 처음 · End 끝</span>
+        <div class="controls">
+            <button id="prev" type="button" aria-label="이전 화면">← 이전</button><span id="progress" aria-live="polite"></span><button id="next-page" type="button" aria-label="다음 화면">다음 →</button>
+        </div>
     </footer>
     <script>
+        // 레퍼런스 모달: 기존 카드의 미디어를 복제해서 표시합니다.
+        const referenceModal = document.getElementById('reference-modal');
+        const referenceViewer = document.getElementById('reference-modal-viewer');
+        let referenceMedia = [],
+            referenceIndex = 0,
+            referenceTrigger = null;
 
-// 레퍼런스 모달: 기존 카드의 미디어를 복제해서 표시합니다.
-const referenceModal=document.getElementById('reference-modal');
-const referenceViewer=document.getElementById('reference-modal-viewer');
-let referenceMedia=[],referenceIndex=0,referenceTrigger=null;
-function renderReferenceMedia(index){
- referenceViewer.querySelectorAll('video,audio').forEach(media=>media.pause());
- referenceViewer.replaceChildren();referenceIndex=index;
- const original=referenceMedia[index];const media=original.cloneNode(true);
- media.removeAttribute('autoplay');media.removeAttribute('loop');media.removeAttribute('style');media.className='';
- if(media.tagName==='VIDEO'){media.controls=true;media.muted=false;media.preload='metadata';media.setAttribute('playsinline','');}
- else media.alt=document.getElementById('reference-modal-title').textContent+' 참고 사진 '+(index+1);
- media.addEventListener('error',()=>{const notice=document.createElement('p');notice.className='modal-error';notice.textContent='자료를 불러올 수 없습니다. 원래 image 폴더와 파일 경로를 확인해 주세요.';referenceViewer.replaceChildren(notice);},{once:true});
- referenceViewer.append(media);
- document.getElementById('reference-media-count').textContent=(index+1)+' / '+referenceMedia.length+' · '+(media.tagName==='VIDEO'?'영상':'사진');
- document.getElementById('reference-media-prev').disabled=index===0;
- document.getElementById('reference-media-next').disabled=index===referenceMedia.length-1;
-}
-document.querySelectorAll('.reference-card').forEach(card=>{
- function openReference(){
- referenceTrigger=card;referenceMedia=[...card.querySelectorAll('img,video')];if(!referenceMedia.length)return;
- document.getElementById('reference-modal-title').textContent=card.querySelector('h3').textContent;
- document.getElementById('reference-modal-description').textContent=card.querySelector('p')?.textContent||'';
- card.querySelectorAll('video').forEach(video=>video.pause());
- renderReferenceMedia(0);referenceModal.showModal();document.body.classList.add('modal-open');
- }
- card.addEventListener('click',event=>{event.stopPropagation();openReference();});
- card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();openReference();}});
-});
-document.getElementById('reference-modal-close').addEventListener('click',()=>referenceModal.close());
-referenceModal.addEventListener('click',event=>{const r=referenceModal.getBoundingClientRect();if(event.target===referenceModal&&(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom))referenceModal.close();});
-referenceModal.addEventListener('close',()=>{referenceViewer.querySelectorAll('video').forEach(video=>video.pause());referenceViewer.replaceChildren();document.body.classList.remove('modal-open');referenceTrigger?.focus();});
-document.getElementById('reference-media-prev').addEventListener('click',()=>renderReferenceMedia(referenceIndex-1));
-document.getElementById('reference-media-next').addEventListener('click',()=>renderReferenceMedia(referenceIndex+1));
-referenceModal.addEventListener('keydown',event=>{if(event.target.closest('video'))return;if(event.key==='ArrowLeft'&&referenceIndex>0){event.preventDefault();renderReferenceMedia(referenceIndex-1);}if(event.key==='ArrowRight'&&referenceIndex<referenceMedia.length-1){event.preventDefault();renderReferenceMedia(referenceIndex+1);}});
+        function renderReferenceMedia(index) {
+            referenceViewer.querySelectorAll('video,audio').forEach(media => media.pause());
+            referenceViewer.replaceChildren();
+            referenceIndex = index;
+            const original = referenceMedia[index];
+            const media = original.cloneNode(true);
+            media.removeAttribute('autoplay');
+            media.removeAttribute('loop');
+            media.removeAttribute('style');
+            media.className = '';
+            if (media.tagName === 'VIDEO') {
+                media.controls = true;
+                media.muted = false;
+                media.preload = 'metadata';
+                media.setAttribute('playsinline', '');
+            } else media.alt = document.getElementById('reference-modal-title').textContent + ' 참고 사진 ' + (index + 1);
+            media.addEventListener('error', () => {
+                const notice = document.createElement('p');
+                notice.className = 'modal-error';
+                notice.textContent = '자료를 불러올 수 없습니다. 원래 image 폴더와 파일 경로를 확인해 주세요.';
+                referenceViewer.replaceChildren(notice);
+            }, {
+                once: true
+            });
+            referenceViewer.append(media);
+            document.getElementById('reference-media-count').textContent = (index + 1) + ' / ' + referenceMedia.length + ' · ' + (media.tagName === 'VIDEO' ? '영상' : '사진');
+            document.getElementById('reference-media-prev').disabled = index === 0;
+            document.getElementById('reference-media-next').disabled = index === referenceMedia.length - 1;
+        }
+        document.querySelectorAll('.reference-card').forEach(card => {
+            function openReference() {
+                referenceTrigger = card;
+                referenceMedia = [...card.querySelectorAll('img,video')];
+                if (!referenceMedia.length) return;
+                document.getElementById('reference-modal-title').textContent = card.querySelector('h3').textContent;
+                document.getElementById('reference-modal-description').textContent = card.querySelector('p') ? .textContent || '';
+                card.querySelectorAll('video').forEach(video => video.pause());
+                renderReferenceMedia(0);
+                referenceModal.showModal();
+                document.body.classList.add('modal-open');
+            }
+            card.addEventListener('click', event => {
+                event.stopPropagation();
+                openReference();
+            });
+            card.addEventListener('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    openReference();
+                }
+            });
+        });
+        document.getElementById('reference-modal-close').addEventListener('click', () => referenceModal.close());
+        referenceModal.addEventListener('click', event => {
+            const r = referenceModal.getBoundingClientRect();
+            if (event.target === referenceModal && (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom)) referenceModal.close();
+        });
+        referenceModal.addEventListener('close', () => {
+            referenceViewer.querySelectorAll('video').forEach(video => video.pause());
+            referenceViewer.replaceChildren();
+            document.body.classList.remove('modal-open');
+            referenceTrigger ? .focus();
+        });
+        document.getElementById('reference-media-prev').addEventListener('click', () => renderReferenceMedia(referenceIndex - 1));
+        document.getElementById('reference-media-next').addEventListener('click', () => renderReferenceMedia(referenceIndex + 1));
+        referenceModal.addEventListener('keydown', event => {
+            if (event.target.closest('video')) return;
+            if (event.key === 'ArrowLeft' && referenceIndex > 0) {
+                event.preventDefault();
+                renderReferenceMedia(referenceIndex - 1);
+            }
+            if (event.key === 'ArrowRight' && referenceIndex < referenceMedia.length - 1) {
+                event.preventDefault();
+                renderReferenceMedia(referenceIndex + 1);
+            }
+        });
 
-      // 화면 전환. 이미지/영상/오디오/버튼/텍스트를 클릭하면 넘어가지 않습니다.
-      const pages = [...document.querySelectorAll(".page")];
-      const navButtons = [...document.querySelectorAll("nav [data-page]")];
-      let current = 0;
-      function show(index, updateHash = true) {
-        index = Math.max(0, Math.min(pages.length - 1, index));
-        pages.forEach((page, i) => {
-          page.hidden = i !== index;
-          if (i !== index)
-            page
-              .querySelectorAll("video,audio")
-              .forEach((media) => media.pause());
-        });
-        current = index;
- document.getElementById("presentation-progress").style.width=((index+1)/pages.length*100)+"%";
-        navButtons.forEach((button) => {
-          if (button.dataset.page === pages[index].id)
-            button.setAttribute("aria-current", "page");
-          else button.removeAttribute("aria-current");
-        });
-        document.getElementById("progress").textContent =
-          String(index + 1).padStart(2, "0") +
-          " / " +
-          String(pages.length).padStart(2, "0");
-        document.getElementById("prev").disabled = index === 0;
-        document.getElementById("next-page").disabled = index === pages.length - 1;
-        if (updateHash) history.replaceState(null, "", "#" + pages[index].id);
-        window.scrollTo({ top: 0, behavior: "instant" });
-      }
-      navButtons.forEach((button) =>
-        button.addEventListener("click", () =>
-          show(pages.findIndex((page) => page.id === button.dataset.page)),
-        ),
-      );
-      document
-        .getElementById("prev")
-        .addEventListener("click", () => show(current - 1));
-      document
-        .getElementById("next-page")
-        .addEventListener("click", () => show(current + 1));
-      document.getElementById("stage").addEventListener("click", (event) => {
-        if (
-          event.target.closest(
-            "a,button,input,textarea,select,video,audio,img,[data-no-next],h1,h2,h3,p,strong,span,.eyebrow",
-          )
-        )
-          return;
-        if (window.getSelection().toString()) return;
-        show(current + 1);
-      });
-      document.addEventListener("keydown", (event) => {
-        if (document.getElementById("reference-modal").open) return;
-        if (
-          event.target.closest(
-            "input,textarea,select,video,audio,button,a,[contenteditable]",
-          ) ||
-          event.ctrlKey ||
-          event.metaKey ||
-          event.altKey
-        )
-          return;
-        if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
-          event.preventDefault();
-          show(current + 1);
+        // 화면 전환. 이미지/영상/오디오/버튼/텍스트를 클릭하면 넘어가지 않습니다.
+        const pages = [...document.querySelectorAll(".page")];
+        const navButtons = [...document.querySelectorAll("nav [data-page]")];
+        let current = 0;
+
+        function show(index, updateHash = true) {
+            index = Math.max(0, Math.min(pages.length - 1, index));
+            pages.forEach((page, i) => {
+                page.hidden = i !== index;
+                if (i !== index)
+                    page
+                    .querySelectorAll("video,audio")
+                    .forEach((media) => media.pause());
+            });
+            current = index;
+            document.getElementById("presentation-progress").style.width = ((index + 1) / pages.length * 100) + "%";
+            navButtons.forEach((button) => {
+                if (button.dataset.page === pages[index].id)
+                    button.setAttribute("aria-current", "page");
+                else button.removeAttribute("aria-current");
+            });
+            document.getElementById("progress").textContent =
+                String(index + 1).padStart(2, "0") +
+                " / " +
+                String(pages.length).padStart(2, "0");
+            document.getElementById("prev").disabled = index === 0;
+            document.getElementById("next-page").disabled = index === pages.length - 1;
+            if (updateHash) history.replaceState(null, "", "#" + pages[index].id);
+            window.scrollTo({
+                top: 0,
+                behavior: "instant"
+            });
         }
-        if(event.key === "Home"){event.preventDefault();show(0);}
-if(event.key === "End"){event.preventDefault();show(pages.length-1);}
-if (event.key === "ArrowLeft" || event.key === "PageUp") {
-          event.preventDefault();
-          show(current - 1);
-        }
-      });
-      function fromHash() {
-        const index = pages.findIndex(
-          (page) => "#" + page.id === location.hash,
+        navButtons.forEach((button) =>
+            button.addEventListener("click", () =>
+                show(pages.findIndex((page) => page.id === button.dataset.page)),
+            ),
         );
-        show(index < 0 ? 0 : index, false);
-      }
-      window.addEventListener("hashchange", fromHash);
-      fromHash();
-    
-// 스크롤 가능한 내용은 먼저 읽고, 맨 끝에서만 화면 이동
-let wheelLocked=false;
-function navigationBlocked(target){return referenceModal.open||target.closest('video,audio,input,textarea,select,button,a,[contenteditable],.table-wrap');}
-window.addEventListener('wheel',event=>{
- if(navigationBlocked(event.target)||event.ctrlKey||Math.abs(event.deltaY)<12)return;
- const root=document.scrollingElement;const end=root.scrollTop+root.clientHeight>=root.scrollHeight-4;const top=root.scrollTop<=2;
- if((event.deltaY>0&&!end)||(event.deltaY<0&&!top))return;
- event.preventDefault();if(wheelLocked)return;wheelLocked=true;show(current+(event.deltaY>0?1:-1));setTimeout(()=>wheelLocked=false,650);
-},{passive:false});
-let swipe=null;
-document.getElementById('stage').addEventListener('touchstart',event=>{if(navigationBlocked(event.target)){swipe=null;return;}swipe={x:event.touches[0].clientX,y:event.touches[0].clientY};},{passive:true});
-document.getElementById('stage').addEventListener('touchend',event=>{if(!swipe||referenceModal.open)return;const dx=event.changedTouches[0].clientX-swipe.x,dy=event.changedTouches[0].clientY-swipe.y;swipe=null;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.5)show(current+(dx<0?1:-1));},{passive:true});
-// 동시에 여러 소리가 겹치지 않도록 한 번에 하나씩 재생
- document.addEventListener('play',event=>{if(!event.target.matches('audio,video'))return;document.querySelectorAll('audio,video').forEach(media=>{if(media!==event.target)media.pause();});},true);
+        document
+            .getElementById("prev")
+            .addEventListener("click", () => show(current - 1));
+        document
+            .getElementById("next-page")
+            .addEventListener("click", () => show(current + 1));
+        document.getElementById("stage").addEventListener("click", (event) => {
+            if (
+                event.target.closest(
+                    "a,button,input,textarea,select,video,audio,img,[data-no-next],h1,h2,h3,p,strong,span,.eyebrow",
+                )
+            )
+                return;
+            if (window.getSelection().toString()) return;
+            show(current + 1);
+        });
+        document.addEventListener("keydown", (event) => {
+            if (document.getElementById("reference-modal").open) return;
+            if (
+                event.target.closest(
+                    "input,textarea,select,video,audio,button,a,[contenteditable]",
+                ) ||
+                event.ctrlKey ||
+                event.metaKey ||
+                event.altKey
+            )
+                return;
+            if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
+                event.preventDefault();
+                show(current + 1);
+            }
+            if (event.key === "Home") {
+                event.preventDefault();
+                show(0);
+            }
+            if (event.key === "End") {
+                event.preventDefault();
+                show(pages.length - 1);
+            }
+            if (event.key === "ArrowLeft" || event.key === "PageUp") {
+                event.preventDefault();
+                show(current - 1);
+            }
+        });
 
-// 미디어가 없는 환경에서도 자료의 자리와 설명을 유지
- document.querySelectorAll('#stage img,#stage video').forEach(media=>{
- function missing(){if(media.nextElementSibling?.classList.contains('missing-label'))return;media.classList.add('asset-missing');const label=document.createElement('div');label.className='missing-label';label.textContent='자료 연결 위치: '+(media.getAttribute('src')||media.querySelector('source')?.getAttribute('src')||'미디어 파일');media.after(label);}
- media.addEventListener('error',missing,{once:true});if(media.tagName==='IMG'&&media.complete&&media.naturalWidth===0)missing();
- });
-</script>
-  </body>
+        function fromHash() {
+            const index = pages.findIndex(
+                (page) => "#" + page.id === location.hash,
+            );
+            show(index < 0 ? 0 : index, false);
+        }
+        window.addEventListener("hashchange", fromHash);
+        fromHash();
+
+        // 스크롤 가능한 내용은 먼저 읽고, 맨 끝에서만 화면 이동
+        let wheelLocked = false;
+
+        function navigationBlocked(target) {
+            return referenceModal.open || target.closest('video,audio,input,textarea,select,button,a,[contenteditable],.table-wrap');
+        }
+        window.addEventListener('wheel', event => {
+            if (navigationBlocked(event.target) || event.ctrlKey || Math.abs(event.deltaY) < 12) return;
+            const root = document.scrollingElement;
+            const end = root.scrollTop + root.clientHeight >= root.scrollHeight - 4;
+            const top = root.scrollTop <= 2;
+            if ((event.deltaY > 0 && !end) || (event.deltaY < 0 && !top)) return;
+            event.preventDefault();
+            if (wheelLocked) return;
+            wheelLocked = true;
+            show(current + (event.deltaY > 0 ? 1 : -1));
+            setTimeout(() => wheelLocked = false, 650);
+        }, {
+            passive: false
+        });
+        let swipe = null;
+        document.getElementById('stage').addEventListener('touchstart', event => {
+            if (navigationBlocked(event.target)) {
+                swipe = null;
+                return;
+            }
+            swipe = {
+                x: event.touches[0].clientX,
+                y: event.touches[0].clientY
+            };
+        }, {
+            passive: true
+        });
+        document.getElementById('stage').addEventListener('touchend', event => {
+            if (!swipe || referenceModal.open) return;
+            const dx = event.changedTouches[0].clientX - swipe.x,
+                dy = event.changedTouches[0].clientY - swipe.y;
+            swipe = null;
+            if (Math.abs(dx) > 65 && Math.abs(dx) > Math.abs(dy) * 1.5) show(current + (dx < 0 ? 1 : -1));
+        }, {
+            passive: true
+        });
+        // 동시에 여러 소리가 겹치지 않도록 한 번에 하나씩 재생
+        document.addEventListener('play', event => {
+            if (!event.target.matches('audio,video')) return;
+            document.querySelectorAll('audio,video').forEach(media => {
+                if (media !== event.target) media.pause();
+            });
+        }, true);
+
+        // 미디어가 없는 환경에서도 자료의 자리와 설명을 유지
+        document.querySelectorAll('#stage img,#stage video').forEach(media => {
+            function missing() {
+                if (media.nextElementSibling ? .classList.contains('missing-label')) return;
+                media.classList.add('asset-missing');
+                const label = document.createElement('div');
+                label.className = 'missing-label';
+                label.textContent = '자료 연결 위치: ' + (media.getAttribute('src') || media.querySelector('source') ? .getAttribute('src') || '미디어 파일');
+                media.after(label);
+            }
+            media.addEventListener('error', missing, {
+                once: true
+            });
+            if (media.tagName === 'IMG' && media.complete && media.naturalWidth === 0) missing();
+        });
+    </script>
+</body>
+
 </html>
